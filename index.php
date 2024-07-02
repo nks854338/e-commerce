@@ -1,23 +1,27 @@
 <?php
-// if (isset($_GET["shop"])) {
+session_start();
 
-//     $servername = "localhost";
-//     $username = "root";
-//     $password = "";
-//     $database = "e_commerce";
-//     $conn = new mysqli($servername, $username, $password, $database);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "e_commerce";
+$conn = new mysqli($servername, $username, $password, $database);
 
-//     $sql = "CREATE TABLE shop( vendorId int8 PRIMARY KEY, vendorName varchar(50), shopName varchar(50), date_of_birth varchar(50), Country varchar(30), Address varchar(300), accountNo numeric, IFSC_code varchar(12), accountHolder varchar(30), bank varchar(30))";
-//     $res = mysqli_query($conn, $sql) or die("error in query" . mysqli_error($conn));
-//     if ($res) {
-//         header("location:vendor.php");
-//     } else {
-//         echo "try again";
-//     }
-// }
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$q = "SELECT * FROM producttype";
+$result = mysqli_query($conn, $q);
+
+$cnt = mysqli_affected_rows($conn);
+if ($cnt == 0) {
+    $noProduct = true;
+} else {
+    $noProduct = false;
+}
+
 ?>
-
-
 
 
 
@@ -29,7 +33,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,133 +41,88 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;500&family=Poppins:wght@300;500;700&family=Roboto:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>Home page of e-commerce site</title>
+    <link rel="stylesheet" href="styled.css">
+    <title>e-commerce site</title>
 </head>
 
 <body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <img src="image/logo.png" alt="" height="37px"> Sneh Sangrah
-            </div>
-            <div class="searchBar">
-                <input type="search" class="search" placeholder="search gifts for some special one...">
-                <i class="fa-solid fa-magnifying-glass searchIcon" style="color: #132186;"></i>
-            </div>
-            <div class="signIn">
-                <?php
-                   session_start();
-                   if(isset($_SESSION['user'])){
-                    echo '<button class="user" name="signIn"><a href="logout.php">';
-                    echo 'Logout</a></button>';
+    <?php
+    include_once ('_navbar.php');
+    ?>
 
-                    echo '<button class="shop" name="shop"><a href="setUpShop.php"><i class="fa-solid fa-shop"></i></a></button>';
-
-                    echo '<button class="wishlist" id="wishlist" name="wishlist"><a href="showWishlist.php"><i class="fa-solid fa-heart"></i></a></button>';
-
-                    echo '<button class="cart" id="cart" name="cart"><a href="showCart.php"><i class="fa-solid fa-cart-shopping"></i></a></button>';
-                   }
-                   else{
-                    echo '<button class="signInBtn" name="signIn"><a href="newUser.php">Sign In</a></button>';
-                    echo '<button class="wishlist" name="wishlist"><a href="newUser.php"><i class="fa-solid fa-heart" style="color: orange;"></i></a></button>';
-                   }
-                ?>
-            </div>
-        </div>
-    </header>
-
-    <main>
-    <section class="firstSection">
+    <section method="post" action="index.php">
+        <section class="firstSection">
             <div class="firSecComponent">
-                
+
                 <?php
-                   if(isset($_SESSION['user'])){
+                if (isset($_SESSION['user'])) {
                     echo '<div class="firSecComp1">Welcome to Sneh Sangrah, ';
-                    echo $_SESSION['user'].'!</div>';
-                   }
-                   else{
+                    echo $_SESSION['name'] . '!</div>';
+                } else {
                     echo '<div class="firSecComp1"> Celebrate EVERY moment with gifts from small shops!</div>';
-                   }
+                }
                 ?>
-                   
                 <div class="firSecComp2">
-                    <div class="firSecBox1 firSecBox" name="Ring">
-                        <div class="image">
-                            <img src="image/8.jpg" alt="" class="proImg">
+                    <?php
+                    if (!$noProduct) {
+                        $skip = 8;
+                        $count = 0;
+                        while ($x = mysqli_fetch_array($result)) {
+                            if ($count < $skip) {
+                                echo "<div class='firSecBox1 firSecBox'>
+                                    <form method='post' action='index.php'>
+                                        <input type='hidden' name='product_id' value='{$x[0]}'>
+                                        <button type='submit' id='' name='search' style='all: unset; cursor: pointer;'>
+                                            
+                        <div class='image'>
+                            <a href='index.php'><img src='{$x[2]}' alt='' class='proImg' height='100%' style='border-radius: 50%;'></a>
                         </div>
-                        <p class="proNam">Ring</p>
-                    </div>
-                    <div class="firSecBox2 firSecBox" name="Anklet">
-                        <div class="image">
-                            <img src="image/4.jpg" alt="" class="proImg">
-                        </div>
-                        <p class="proNam">Anklet</p>
-                    </div>
-                    <div class="firSecBox3 firSecBox">
-                        <div class="image">
-                            <img src="image/18.jpg" alt="" class="proImg">
-                        </div>
-                        <p class="proNam">Earrings</p>
-                    </div>
-                    <div class="firSecBox4 firSecBox">
-                        <div class="image">
-                            <img src="image/12.jpg" alt="" class="proImg">
-                        </div>
-                        <p class="proNam">Ring</p>
-                    </div>
-                    <div class="firSecBox5 firSecBox">
-                        <div class="image">
-                            <img src="image/1.jpg" alt="" class="proImg">
-                        </div>
-                        <p class="proNam">Necklace</p>
-                    </div>
-                    <div class="firSecBox5 firSecBox">
-                        <div class="image">
-                            <img src="image/5.jpg" alt="" class="proImg">
-                        </div>
-                        <p class="proNam">Anklet</p>
-                    </div>
+                        <p class='proNam'>{$x[1]}</p>
+                          </button>
+                                    </form>
+                      </div>";
+                            }
+                            $count++;
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </section>
 
+        <section class="searchProductSection"></section>
+
         <section class="secondSection">
             <div class="secSecheading">
-                Shop our popular gift categories  
+                Shop our popular gift categories
             </div>
             <div class="secSecCards">
-                <div class="card1 secSeccard">
-                    <img src="image/7.jpg" alt="" class="cardProImg1 cardimg">
-                    <div class="cardpara">
-                        Gold necklace
-                    </div>
-                </div>
-                <div class="card2 secSeccard ">
-                    <img src="image/22.jpg" alt="" class="cardProImg2 cardimg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-                <div class="card3 secSeccard">
-                    <img src="image/25.jpg">
-                    <div class="cardpara">
-                        Payal
-                    </div>
-                </div>
-                <div class="card4 secSeccard">
-                    <img src="image/26.jpg" alt="" class="cardProImg4 cardimg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-                <div class="card5 secSeccard">
-                    <img src="image/24.jpg" alt="" class="cardProImg5 cardimg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-            </div>
+                <?php
+                if (!$noProduct) {
+                    // Reset the result pointer to the beginning
+                    mysqli_data_seek($result, 0);
+
+                    $startNum = 7;
+                    $endNum = 13;
+                    $count = 0;
+                    while ($x = mysqli_fetch_array($result)) {
+                        if ($count > $startNum && $count < $endNum) {
+                            echo "<form method='post' action='index.php'>
+                                        <input type='hidden' name='product_id' value='{$x[0]}'>
+                                        <button type='submit' name='search' style='all: unset; cursor: pointer;'>
+                                          <div class='card3 secSeccard'>
+                                <img src='$x[2]' alt='' class='cardProImg4 cardimg'>
+                                <div class='cardpara'>
+                                    $x[1]
+                                </div>
+                              </div>
+                               </button>
+                                    </form>";
+                        }
+                        $count++;
+                    }
+                }
+                ?>
             </div>
         </section>
 
@@ -172,116 +131,183 @@
                 Gifts that honor Mom and Dad's love
             </div>
             <div class="secSecCards">
-                <div class="card1 secSeccard">
-                    <img src="image/28.jpg" alt="" class="cardProImg1 cardimg">
-                    <div class="cardpara">
-                        Gold necklace
+                <?php
+                if (!$noProduct) {
+                    // Reset the result pointer to the beginning
+                    mysqli_data_seek($result, 0);
+
+                    $startNum = 13;
+                    $endNum = 19;
+                    $count = 0;
+                    while ($x = mysqli_fetch_array($result)) {
+                        if ($count > $startNum && $count < $endNum) {
+                            echo "<form method='post' action='index.php'>
+                                        <input type='hidden' name='product_id' value='{$x[0]}'>
+                                        <button type='submit' name='search' style='all: unset; cursor: pointer;'>
+                                         <div class='card2 secSeccard' type='submit' name='search'>
+                    <img src='$x[2]' alt=' class='cardProImg2 cardimg'>
+                    <div class='cardpara'>
+                        $x[1]
                     </div>
                 </div>
-                <div class="card2 secSeccard ">
-                    <img src="image/29.jpg" alt="" class="cardProImg2 cardimg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-                <div class="card3 secSeccard">
-                    <img src= "image/31.jpg">
-                    <div class="cardpara">
-                        Payal
-                    </div>
-                </div>
-                <div class="card4 secSeccard">
-                    <img src="image/27.jpg" alt="" class="cardProImg4 cardimg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-                <div class="card5 secSeccard">
-                    <img src="image/26.jpg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-            </div>
+                 </button>
+                                    </form>";
+                        }
+                        $count++;
+                    }
+                }
+                ?>
             </div>
         </section>
-
 
         <section class="secondSection">
             <div class="secSecheading">
                 Gifts for friends
             </div>
             <div class="secSecCards">
-                <div class="card1 secSeccard">
-                    <img src="image/32.jpg" alt="" class="cardProImg1 cardimg">
-                    <div class="cardpara">
-                        Gold necklace
+                <?php
+                if (!$noProduct) {
+                    // Reset the result pointer to the beginning
+                    mysqli_data_seek($result, 0);
+
+                    $startNum = 19;
+                    $endNum = 25;
+                    $count = 0;
+                    while ($x = mysqli_fetch_array($result)) {
+                        if ($count > $startNum && $count < $endNum) {
+                            echo "<form method='post' action='index.php'>
+                                        <input type='hidden' name='product_id' value='{$x[0]}'>
+                                        <button type='submit' name='search' style='all: unset; cursor: pointer;'>
+                                         <div class='card2 secSeccard' type='submit' name='search'>
+                    <img src='$x[2]' alt=' class='cardProImg2 cardimg'>
+                    <div class='cardpara'>
+                        $x[1]
                     </div>
                 </div>
-                <div class="card2 secSeccard ">
-                    <img src="image/30.jpg" alt="" class="cardProImg2 cardimg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-                <div class="card3 secSeccard">
-                    <img src="image/33.jpg">
-                    <div class="cardpara">
-                        Payal
-                    </div>
-                </div>
-                <div class="card4 secSeccard">
-                    <img src="image/30.jpg" alt="" class="cardProImg4 cardimg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-                <div class="card5 secSeccard">
-                    <img src="image/30.jpg">
-                    <div class="cardpara">
-                        Gifts
-                    </div>
-                </div>
-            </div>
+                 </button>
+                                    </form>";
+                        }
+                        $count++;
+                    }
+                }
+                ?>
             </div>
         </section>
-
 
         <section class="thirdSection">
             <div class="thiSecheading">
                 Discover more shops in India
             </div>
             <div class="thiSecCards">
-                <div class="card1 thiSeccard">
-                    <img src="image/5.jpg" alt="" class="cardProImg1 cardimg">
-                    <div class="cardpara">
-                        <h4>Gift</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, ad?</p>
+                <?php
+                if (!$noProduct) {
+                    // Reset the result pointer to the beginning
+                    mysqli_data_seek($result, 0);
+
+                    $skip = 25;
+                    $count = 0;
+                    while ($x = mysqli_fetch_array($result)) {
+                        if ($count >= $skip) {
+                            echo "<form method='post' action='index.php'>
+                                        <input type='hidden' name='product_id' value='{$x[0]}'>
+                                        <button type='submit' name='search' style='all: unset; cursor: pointer;'>
+                  <div class='card1 thiSeccard' type='submit' name='search'>
+                    <img src='$x[2]' alt=' class='cardProImg1 cardimg'>
+                    <div class='cardpara'>
+                        <h4>$x[1]</h4>
+                        <p>$x[3]</p>
                     </div>
                 </div>
-                <div class="card2 thiSeccard ">
-                    <img src="image/7.jpg" alt="" class="cardProImg2 cardimg">
-                    <div class="cardpara">
-                        <h4>Gift</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, ad?</p>
-                    </div>
-                </div>
-                <div class="card3 thiSeccard">
-                    <img src="image/12.jpg" alt="" class="cardProImg3 cardimg">
-                    <div class="cardpara">
-                        <h4>Gift</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, ad?</p>
-                    </div>
-                </div>
-            </div>
+                 </button>
+                                    </form>
+                ";
+                        }
+                        $count++;
+                    }
+                }
+                ?>
             </div>
         </section>
+
         <section class="fourthSection"></section>
         <section class="fifthSection"></section>
-    </main>
+    </section>
     <?php
-  include_once('_footer.php');
-  ?>
+    include_once ('_footer.php');
+    ?>
 </body>
 
 </html>
+
+
+
+<?php
+if (isset($_POST['search'])) {
+    $product_id = $_POST['product_id'];
+    echo '<script type="text/javascript">';
+    echo '</script>';
+
+    $sql = "SELECT * FROM `producttype` WHERE `sno`='$product_id'";
+    $result = mysqli_query($conn, $sql);
+    $num = mysqli_num_rows($result);
+
+    if ($num == 1) {
+        while ($data = mysqli_fetch_array($result))
+            $keywords = $data[4];
+    } else {
+        echo "error";
+    }
+
+}
+?>
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "e_commerce";
+$conn = new mysqli($servername, $username, $password, $database);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$q = "SELECT * FROM producttype";
+$result = mysqli_query($conn, $q);
+
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+// $cnt = mysqli_affected_rows($conn);
+// $noProduct = ($cnt == 0);
+
+$filteredProducts = [];
+if (isset($_POST['search'])) {
+    $product_id = $_POST['product_id'];
+
+    $sql = "SELECT searchkey FROM producttype WHERE sno='$product_id'";
+    $searchkey = mysqli_query($conn, $sql);
+
+    if (!$searchkey) {
+        die("Query failed: " . mysqli_error($conn));
+    }
+
+    $num = mysqli_num_rows($searchkey);
+    echo $num;
+
+    if ($searchkey->num_rows > 0) {
+        // Fetch data from result set
+        while ($row = $result->fetch_assoc()) {
+            echo "g$filter=$row.filter($data1 => 
+      $data1.name.toLowerCase().includes($searchkey)
+  );</script>";
+            // Now $row is an associative array
+            echo "ID: " . $row["sno"] . " - Name: " . $row["name"] . "<br>";
+        }
+    } else {
+        echo "0 results";
+    }
+}
+?>

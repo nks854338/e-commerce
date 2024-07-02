@@ -1,38 +1,40 @@
 <?php
-
-$show="0";
-$error="0";
+$show = "0";
+$error = "0";
 //db_connection
-$servername="localhost";
-$username="root";
-$password="";
-$database="e_commerce";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "e_commerce";
 
-$conn=new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $database);
 
-if(isset ($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-$username = $_POST["username"];
-$password = $_POST["password"];
-$cpassword = $_POST["cpassword"];
-if(($password == $cpassword)){
-    $hash=password_hash($password, PASSWORD_DEFAULT);
-$sql = "INSERT INTO `user` (`username`, `password`) VALUES ('$username', '$hash')";
-$result = mysqli_query($conn, $sql);
-if($result){
-    $show = "1";
-    echo "success";
-    session_start();
-    $_SESSION['user']=$username;
-    header("location: vendor.php");
-}
-}
-else{
-    echo "failure";
-    $error="1";
+    $shopName = $_POST["shopName"];
+    $VendorName = $_POST["VendorName"];
+    $dob = $_POST["dob"];
+    $country = $_POST["country"];
+    $address = $_POST["address"];
+    $accountNo = $_POST["accountNo"];
+    $IFSC = $_POST["IFSC"];
+    $accHolderName = $_POST["accHolderName"];
+    $bank = $_POST["bank"];
+    $sql = "INSERT INTO `shop` (`shopName`, `VendorName`,`dob`,`country`,`address`,`accountNo`,`IFSC`,`accHolderName`,`bank`) VALUES ('$shopName', '$VendorName','$dob','$country','$address','$accountNo','$IFSC','$accHolderName','$bank')";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        $show = "1";
+        echo '<script type="text/javascript">';
+        echo 'alert("Shop created succefully");';
+        echo 'window.location.href = "vendor.php";';
+        echo '</script>';
+    }
+    else {
+        echo "failure";
+        $error = "1";
+    }
 }
 
-}
 $conn->close();
 
 
@@ -57,19 +59,19 @@ $conn->close();
 </head>
 
 <body>
-    <header>
+    <header class="setUpShopHeader">
         <div class="navbar">
             <div class="name">Sneh Sangrah</div>
         </div>
     </header>
     <main>
-        <section class="firstSection">
+        <section class="setUpSection" style="background-color: antiquewhite;">
             <div class="firsec">
                 <div class="heading1">Setup your Shop on Sneh Sangrah</div>
                 <div class="para1">Let's get started! Tell us about you and your shop.</div>
             </div>
             <div class="formSection">
-                <form action="setUpShop.php">
+                <form action="setUpShop.php" method="POST" id="shopCreationForm">
                     <div class="firstBox">
                         <div class="tableBox">
                             <table>
@@ -144,7 +146,7 @@ $conn->close();
                     <div class="thirdBox">
                         <div class="thisec">
                             <div class="heading2">How you'll get paid</div>
-                            <div class="para2">Give us your account details where you'll get paid</div>
+                            <div class="para1">Give us your account details where you'll get paid</div>
                         </div>
                         <div class="tableBox">
                             <table>
@@ -153,7 +155,7 @@ $conn->close();
                                         <label for="country">Account No:</label>
                                     </th>
                                     <td>
-                                        <input type="number" class="accNo" name="accNo">
+                                        <input type="number" class="accNo" name="accountNo">
                                     </td>
                                 </tr>
 
@@ -171,7 +173,7 @@ $conn->close();
                                         <label for="country">Account holder Name:</label>
                                     </th>
                                     <td>
-                                        <input type="text" class="bankName" name="bankName">
+                                        <input type="text" class="accHolderName" name="accHolderName">
                                     </td>
                                 </tr>
 
@@ -180,12 +182,12 @@ $conn->close();
                                         <label for="country">Bank name:</label>
                                     </th>
                                     <td>
-                                        <input type="text" class="accHolderName" name="accHolderName">
+                                        <input type="text" class="bankName" name="bank">
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="submitbtn">
+                        <div class="submitbtn" style="display: flex; align-items: center; justify-content: center;">
                             <button class="submitData" name="submit">
                                 Create your shop
                             </button>
@@ -195,9 +197,9 @@ $conn->close();
             </div>
         </section>
     </main>
-    <footer>
-        created with <span class="heart">&#9829;</span>by Nandani
-    </footer>
+    <?php
+    include_once ('_footer.php');
+    ?>
 </body>
 
 </html>

@@ -25,6 +25,7 @@ if($result){
     echo "success";
     session_start();
     $_SESSION['user']=$username;
+    $_SESSION['name']=$name;
     header("location: index.php");
 }
 }
@@ -58,27 +59,21 @@ $conn->close();
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Register form</title>
+
     <style>
         * {
             padding: 0;
             margin: 0;
         }
 
-        .container {
-            background-color: rgb(0, 0, 0);
-            background-image: url("https://cdn.pixabay.com/photo/2015/05/26/23/52/technology-785742_1280.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            margin-left: 0;
-            margin-right: 0;
-            width: 100%;
+        a{
+            text-decoration: none;
+            color: #eb5e28;
+            font-weight: 600;
         }
 
-        h1 {
+        h2{
             font-size: 5.5vmin;
-            margin-top: 2vmin;
-            font-weight: 600;
-            color: black;
             text-align: center;
         }
 
@@ -86,103 +81,123 @@ $conn->close();
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 87.5vh;
+            height: 80vmin;
+        }
+
+        p{
+            text-align: center;
         }
 
         form {
             height: 80vh;
-            display: inline-grid;
-            justify-content: center;
-            align-items: center;
-            opacity: 90%;
-            background-color: rgb(40, 74, 142);
-            align-items: center;
-            color: black;
-            border-radius: 20px;
+            width: 30vw;
+            padding: 4vmin;
+            box-shadow: gray 0 2px 5px;
+            display: grid;
+            gap: 3vmin;
+            border-radius: 10px;
         }
 
-        tr,
-        td,
-        th {
-            padding: 1vmin;
+        .formInput {
+            width: 100%;
+            display: grid;
+            gap: 2.5vmin;
         }
 
-        table {
-            margin: 5vmin;
-        }
-
-        table input {
+        input{
+            padding-left: 2vmin;
             border-radius: 10px;
             border: none;
-            text-align: center;
             height: 5vmin;
-            width: 40vmin;
-            border: black solid 2px;
+            width: 100%;
+            box-shadow: gray 0 2px 5px;
             background-color: #ffffff;
         }
 
-        .register {
+        .registerBtn button{
             border-radius: 10px;
-            padding: 1.7vmin 9vmin;
-            background-color: black;
-            color: #ffffff;
+            border: none;
+            background-color: #111;
+            color: #fff;
+            height: 5.5vmin;
+            width: 100%;
+            font-size: 3.2vmin;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        p {
+        .registerBtn button:hover{
+            background-color: #fc6a03;
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        .forgotBox {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
             text-align: center;
-            margin-bottom: 5vmin;
         }
     </style>
 </head>
 
 <body>
     <?php
-         include_once('_navbar.php');
+    include_once ('_navbar.php');
     ?>
 
     <div class="container">
 
         <form action="newUser.php" method="post" enctype="multipart/form-data">
-            <h1>Register</h1>
-            <table>
-            <tr>
-                    <th>
-                        <i class="fa-solid fa-user" style="color:rgb(0, 0, 0);"></i> name :
-                    </th>
-                    <td>
-                        <input type="text" placeholder="enter your name..." class="name" required name="name">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <i class="fa-solid fa-user" style="color:rgb(0, 0, 0);"></i> username :
-                    </th>
-                    <td>
-                        <input type="email" placeholder="email" class="name" required name="username">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
+            <div class="formHeading">
+                <h2>Register</h2>
+                <p>Join us today and unlock exclusive deals and offers!</p>
+            </div>
+            <div class="formInput">
+                <div class="inputBox">
+                    <div>
+                        <i class="fa-solid fa-user" style="color:rgb(0, 0, 0);"></i> Name :
+                    </div>
+                    <div>
+                        <input type="text" class="name" required name="name">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div>
+                        <i class="fa-solid fa-user" style="color:rgb(0, 0, 0);"></i> Email :
+                    </div>
+                    <div>
+                        <input type="email" class="username" required name="username">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div>
                         <i class="fa-solid fa-lock" style="color: rgb(2, 2, 2);"></i> Password :
-                    </th>
-                    <td>
-                        <input type="password" placeholder="password" class="password" required name="password">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <i class="fa-solid fa-lock" style="color: rgb(2, 2, 2);"></i> cpassword :
-                    </th>
-                    <td>
-                        <input type="password" placeholder="CPassword" class="cpassword" required name="cpassword">
-                    </td>
-                </tr>
-            </table>
-            <p><input type="submit" name="submit" class="register" value="register"></p>
+                    </div>
+                    <div>
+                        <input type="password" class="password" required name="password">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <div>
+                        <i class="fa-solid fa-lock" style="color: rgb(2, 2, 2);"></i> CPassword :
+                    </div>
+                    <div>
+                    <input type="password" class="cpassword" required name="cpassword">
+                    </div>
+                </div>
+            </div>
+            <div class="registerBtn"><button name="submit" class="register">Register</button></div>
+            <div class="forgotBox">
+                <div>Already have a account?
+                    <a href="oldUser.php">Login Here</a>
+                </div>
+            </div>
 
         </form>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

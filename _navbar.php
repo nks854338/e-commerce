@@ -25,17 +25,19 @@
                         <i class="fa-solid fa-magnifying-glass searchIcon"></i>
                         </button>
                 </div>
-            <div class="signIn">
+            <div class="navComponentBox">
                 <?php
                 if (isset($_SESSION['user'])) {
-                    echo '<button class="user" name="signIn"><a href="logout.php">';
-                    echo 'Logout</a></button>';
+                    echo "<div class='signIn'>";
+                    echo '<button class="user" name="signIn"><a href="userProfile.php">';
+                    echo '<div class="userProfileBox"><i class="fa-regular fa-user"></i></div></a></button>';
 
                     echo '<button class="shop" name="shop"><a href="setUpShop.php"><i class="fa-solid fa-shop"></i></a></button>';
 
-                    echo '<button class="wishlist" id="wishlist" name="wishlist"><a href="showWishlist.php"><i class="fa-solid fa-heart"></i></a></button>';
+                    echo '<button class="wishlist" id="wishlist" name="wishlist"><a href="showWishlist.php"><i class="fa-regular fa-heart"></i></a></button>';
 
                     echo '<button class="cart" id="cart" name="cart"><a href="showCart.php"><i class="fa-solid fa-cart-shopping"></i></a></button>';
+                    echo "</div>";
                 } else {
                     echo '<button class="signInBtn" name="signIn"><a href="oldUser.php">Sign In</a></button>';
                     echo '<button class="wishlist" name="wishlist"><a href="newUser.php"><i class="fa-solid fa-heart" style="color: orange;"></i></a></button>';

@@ -61,7 +61,11 @@ header,
     padding: 0 3%;
 }
 
-.searchBar .searchIcon {
+.searchBar button{
+    border: none;
+}
+
+.searchBar button .searchIcon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -126,7 +130,7 @@ header,
     margin: 3vmin;
 }
 
-.firSecComponent .firSecComp2, .secondSection .secSecCards, .thirdSection .thiSecCards {
+.firSecComponent .firSecComp2,.secSecCards , .thirdSection .thiSecCards {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -162,6 +166,87 @@ header,
 }
 
 /* first section css end */
+
+
+
+/* searchsection css start */
+
+.displayedCard {
+    height: 60vmin;
+    width: 40vmin;
+    box-shadow: gray 0 0.5px 2px;
+    margin: 3vmin;
+  }
+
+  .displayedCard:hover {
+    transform: scale(1.02);
+  }
+
+  .displayedProductImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+  }
+
+  .displayedProductImage img {
+    height: 100%;
+    width: auto;
+  }
+
+  .displayedProductInfoBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vmin;
+    height: 20%;
+  }
+
+  .displayedProductInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+  }
+
+  .displayedProductName {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .displayedProductdesc {
+    font-size: 17px;
+    line-height: 100%;
+    font-weight: lighter;
+    color: rgb(81, 81, 81);
+  }
+
+  .displayedProductPrice {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .currProductPrice {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .previousProductPrice {
+    font-size: 13px;
+    font-weight: lighter;
+    text-decoration: line-through;
+    color: rgb(81, 81, 81);
+  }
+  .ProductOffer {
+    font-size: 13px;
+    font-weight: lighter;
+    color: #f63;
+  }
+
+/* searchsection css end */
 
 
 
@@ -357,6 +442,101 @@ header,
 }
 
 /* wishList & cart page css end */
+
+
+
+
+/* register & login page css start */
+
+.forgotBox div a{
+    text-decoration: none;
+    color: #eb5e28;
+    font-weight: 600;
+}
+
+.loginFormHeading h2{
+    font-size: 5.5vmin;
+    text-align: center;
+}
+
+.loginFormHeading p{
+    text-align: center;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vmin;
+}
+
+
+.registerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vmin;
+}
+
+.registerform, .loginform {
+    margin-top: 10vmin;
+    width: 30vw;
+    padding: 4vmin;
+    box-shadow: gray 0 2px 5px;
+    display: grid;
+    gap: 1vmin;
+    border-radius: 10px;
+}
+
+.loginform {
+    height: 65vh;
+}
+
+.registerform {
+    height: 80vh;
+}
+
+.loginFormInput {
+    width: 100%;
+    display: grid;
+    gap: 2vmin;
+}
+
+.loginInputBox div input , .registerBtn button{
+    border-radius: 10px;
+    border: none;
+    height: 5vmin;
+    width: 100%;
+    box-shadow: gray 0 2px 5px;
+    background-color: #ffffff;
+}
+
+.registerBtn button{
+    margin-top: 2vmin;
+    background-color: #111;
+    color: #fff;
+    height: 5.5vmin;
+    font-size: 3.2vmin;
+}
+
+.registerBtn button:hover{
+    background-color: #fc6a03;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.forgotBox {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* register & login page css end */
+
+
+
 
     /* footer css start */
 

@@ -1,4 +1,4 @@
-<?php
+<?php                                           //this script is for rendering cards
 session_start();
 
 $servername = "localhost";
@@ -23,6 +23,67 @@ if ($cnt == 0) {
 
 ?>
 
+
+
+<?php                                            //this script is for search
+
+if (isset($_POST['search'])) {
+    $product_id = $_POST['product_id'];
+
+    $sql = "SELECT * FROM `producttype` WHERE `sno`='$product_id'";
+    $r = mysqli_query($conn, $sql);
+
+    if ($r) {
+        $array = mysqli_fetch_array($r);
+        $name = $array['name'];
+    }
+
+    $q = "SELECT * FROM `product` WHERE `productname`like '%$name%'";
+    $output = mysqli_query($conn, $q);
+    $numOfRow = mysqli_affected_rows($conn);
+
+    if (!$output) {
+        die("Query failed: " . mysqli_error($conn));
+    }
+
+    if ($numOfRow == 0) {
+        $noSearch = true;                 //this varibale is used to render the cards on Home page
+    } else {
+        $noSearch = false;
+    }
+}
+
+?>
+
+
+<?php
+
+if (isset($_POST['input'])) {
+    $inputData = $_POST['inputData'];
+    if($inputData==""){
+        echo '<script type="text/javascript">';
+        echo 'alert("please enter a valid text");';
+        echo '</script>';
+         $noInput = true;  
+    }
+    else{
+    $q = "SELECT * FROM `product` WHERE `productname` like '%$inputData%'";
+    $output = mysqli_query($conn, $q);
+    $numOfRow = mysqli_affected_rows($conn);
+
+    if (!$output) {
+        die("Query failed: " . mysqli_error($conn));
+    }
+
+    if ($numOfRow == 0) {
+        $noInput = true;                 //this varibale is used to render the cards on Home page
+    } else {
+        $noInput = false;
+    }
+}
+}
+
+?>
 
 
 
@@ -90,7 +151,100 @@ if ($cnt == 0) {
             </div>
         </section>
 
-        <section class="searchProductSection"></section>
+        <section class="searchProductSection secondSection">                      <!-- this section renders search datas -->                
+            <?php
+            if (isset($_POST['search'])) {
+                echo "<div class='secSecheading'>
+                Result for `$name`
+            </div>";
+            }
+
+            if (isset($_POST['input'])) {
+                if(!$inputData==""){
+                echo "<div class='secSecheading'>
+                Result for `$inputData`
+            </div>";
+                }
+            }
+            ?>
+            <div class="secSecCards"
+                style='display: flex; justify-content: space-around; flex-wrap: wrap;  margin: auto;'>
+                <?php
+                if (isset($_POST['search'])) {
+                    if (!$noSearch) {
+                
+                        $startNum = 1;
+                        $endNum = 19;
+                        $count = 0;
+                        while ($x = mysqli_fetch_assoc($output)) {
+                            if ($count < $skip) {
+                                echo "
+ <div class='displayedCard'>
+      <div class='displayedProductImage'>
+        <img
+          src='{$x['image']}'
+          alt='
+          class='img'
+        />
+      </div>
+      <div class='displayedProductInfoBox'>
+        <div class='displayedProductInfo'>
+          <div class='displayedProductName'>{$x['productName']}</div>
+          <div class='displayedProductdesc'>{$x['productDescription']}</div>
+          <div class='displayedProductPrice'>
+            <span class='currProductPrice'>RS.{$x['ProductPrice']}</span>
+            <span class='previousProductPrice'>Rs.1000</span>
+            <span class='ProductOffer' span>(50%OFF)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+                ";
+                            }
+                            $count++;
+                        }
+                    }
+                }
+
+                if (isset($_POST['input'])) {
+                    if (!$noInput) {
+                        $startNum = 1;
+                        $endNum = 19;
+                        $count = 0;
+                        while ($x = mysqli_fetch_assoc($output)) {
+                            if ($count < $skip) {
+                                echo "
+ <div class='displayedCard'>
+      <div class='displayedProductImage'>
+        <img
+          src='{$x['image']}'
+          alt='
+          class='img'
+        />
+      </div>
+      <div class='displayedProductInfoBox'>
+        <div class='displayedProductInfo'>
+          <div class='displayedProductName'>{$x['productName']}</div>
+          <div class='displayedProductdesc'>{$x['productDescription']}</div>
+          <div class='displayedProductPrice'>
+            <span class='currProductPrice'>RS.{$x['ProductPrice']}</span>
+            <span class='previousProductPrice'>Rs.1000</span>
+            <span class='ProductOffer' span>(50%OFF)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+                ";
+                            }
+                            $count++;
+                        }
+                    }
+                }
+
+
+                ?>
+            </div>
+        </section>
 
         <section class="secondSection">
             <div class="secSecheading">
@@ -144,7 +298,7 @@ if ($cnt == 0) {
                             echo "<form method='post' action='index.php'>
                                         <input type='hidden' name='product_id' value='{$x[0]}'>
                                         <button type='submit' name='search' style='all: unset; cursor: pointer;'>
-                                         <div class='card2 secSeccard' type='submit' name='search'>
+                                         <div class='card2 secSeccard'>
                     <img src='$x[2]' alt=' class='cardProImg2 cardimg'>
                     <div class='cardpara'>
                         $x[1]
@@ -178,7 +332,7 @@ if ($cnt == 0) {
                             echo "<form method='post' action='index.php'>
                                         <input type='hidden' name='product_id' value='{$x[0]}'>
                                         <button type='submit' name='search' style='all: unset; cursor: pointer;'>
-                                         <div class='card2 secSeccard' type='submit' name='search'>
+                                         <div class='card2 secSeccard'>
                     <img src='$x[2]' alt=' class='cardProImg2 cardimg'>
                     <div class='cardpara'>
                         $x[1]
@@ -211,7 +365,7 @@ if ($cnt == 0) {
                             echo "<form method='post' action='index.php'>
                                         <input type='hidden' name='product_id' value='{$x[0]}'>
                                         <button type='submit' name='search' style='all: unset; cursor: pointer;'>
-                  <div class='card1 thiSeccard' type='submit' name='search'>
+                  <div class='card1 thiSeccard'>
                     <img src='$x[2]' alt=' class='cardProImg1 cardimg'>
                     <div class='cardpara'>
                         <h4>$x[1]</h4>
@@ -238,76 +392,3 @@ if ($cnt == 0) {
 </body>
 
 </html>
-
-
-
-<?php
-if (isset($_POST['search'])) {
-    $product_id = $_POST['product_id'];
-    echo '<script type="text/javascript">';
-    echo '</script>';
-
-    $sql = "SELECT * FROM `producttype` WHERE `sno`='$product_id'";
-    $result = mysqli_query($conn, $sql);
-    $num = mysqli_num_rows($result);
-
-    if ($num == 1) {
-        while ($data = mysqli_fetch_array($result))
-            $keywords = $data[4];
-    } else {
-        echo "error";
-    }
-
-}
-?>
-
-<?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "e_commerce";
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$q = "SELECT * FROM producttype";
-$result = mysqli_query($conn, $q);
-
-if (!$result) {
-    die("Query failed: " . mysqli_error($conn));
-}
-
-// $cnt = mysqli_affected_rows($conn);
-// $noProduct = ($cnt == 0);
-
-$filteredProducts = [];
-if (isset($_POST['search'])) {
-    $product_id = $_POST['product_id'];
-
-    $sql = "SELECT searchkey FROM producttype WHERE sno='$product_id'";
-    $searchkey = mysqli_query($conn, $sql);
-
-    if (!$searchkey) {
-        die("Query failed: " . mysqli_error($conn));
-    }
-
-    $num = mysqli_num_rows($searchkey);
-    echo $num;
-
-    if ($searchkey->num_rows > 0) {
-        // Fetch data from result set
-        while ($row = $result->fetch_assoc()) {
-            echo "g$filter=$row.filter($data1 => 
-      $data1.name.toLowerCase().includes($searchkey)
-  );</script>";
-            // Now $row is an associative array
-            echo "ID: " . $row["sno"] . " - Name: " . $row["name"] . "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
-}
-?>

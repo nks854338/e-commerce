@@ -1,38 +1,37 @@
 <?php
 
-$show="0";
-$error="0";
+$show = "0";
+$error = "0";
 //db_connection
-$servername="localhost";
-$username="root";
-$password="";
-$database="e_commerce";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "e_commerce";
 
-$conn=new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $database);
 
-if(isset ($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-$name = $_POST["name"];
-$username = $_POST["username"];
-$password = $_POST["password"];
-$cpassword = $_POST["cpassword"];
-if(($password == $cpassword)){
-    $hash=password_hash($password, PASSWORD_DEFAULT);
-$sql = "INSERT INTO `user` (`name`,`username`, `password`) VALUES ('$name', '$username', '$hash')";
-$result = mysqli_query($conn, $sql);
-if($result){
-    $show = "1";
-    echo "success";
-    session_start();
-    $_SESSION['user']=$username;
-    $_SESSION['name']=$name;
-    header("location: index.php");
-}
-}
-else{
-    echo "failure";
-    $error="1";
-}
+    $name = $_POST["name"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $cpassword = $_POST["cpassword"];
+    if (($password == $cpassword)) {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO `user` (`name`,`username`, `password`) VALUES ('$name', '$username', '$hash')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            $show = "1";
+            echo "success";
+            session_start();
+            $_SESSION['user'] = $username;
+            $_SESSION['name'] = $name;
+            header("location: index.php");
+        }
+    } else {
+        echo "failure";
+        $error = "1";
+    }
 
 }
 $conn->close();
@@ -57,88 +56,12 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link rel="stylesheet" href="styled.css" />
     <title>Register form</title>
 
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        a{
-            text-decoration: none;
-            color: #eb5e28;
-            font-weight: 600;
-        }
-
-        h2{
-            font-size: 5.5vmin;
-            text-align: center;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vmin;
-        }
-
-        p{
-            text-align: center;
-        }
-
-        form {
-            height: 80vh;
-            width: 30vw;
-            padding: 4vmin;
-            box-shadow: gray 0 2px 5px;
-            display: grid;
-            gap: 3vmin;
-            border-radius: 10px;
-        }
-
-        .formInput {
-            width: 100%;
-            display: grid;
-            gap: 2.5vmin;
-        }
-
-        input{
-            padding-left: 2vmin;
-            border-radius: 10px;
-            border: none;
-            height: 5vmin;
-            width: 100%;
-            box-shadow: gray 0 2px 5px;
-            background-color: #ffffff;
-        }
-
-        .registerBtn button{
-            border-radius: 10px;
-            border: none;
-            background-color: #111;
-            color: #fff;
-            height: 5.5vmin;
-            width: 100%;
-            font-size: 3.2vmin;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .registerBtn button:hover{
-            background-color: #fc6a03;
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        .forgotBox {
-            display: grid;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            text-align: center;
+        .navbar {
+            margin-top: -2vmin !important;
         }
     </style>
 </head>
@@ -148,15 +71,15 @@ $conn->close();
     include_once ('_navbar.php');
     ?>
 
-    <div class="container">
+    <div class="registerContainer">
 
-        <form action="newUser.php" method="post" enctype="multipart/form-data">
-            <div class="formHeading">
+        <form action="newUser.php" method="post" enctype="multipart/form-data" class="registerform">
+            <div class="loginFormHeading">
                 <h2>Register</h2>
                 <p>Join us today and unlock exclusive deals and offers!</p>
             </div>
-            <div class="formInput">
-                <div class="inputBox">
+            <div class="loginFormInput">
+                <div class="loginInputBox">
                     <div>
                         <i class="fa-solid fa-user" style="color:rgb(0, 0, 0);"></i> Name :
                     </div>
@@ -164,7 +87,7 @@ $conn->close();
                         <input type="text" class="name" required name="name">
                     </div>
                 </div>
-                <div class="inputBox">
+                <div class="loginInputBox">
                     <div>
                         <i class="fa-solid fa-user" style="color:rgb(0, 0, 0);"></i> Email :
                     </div>
@@ -172,7 +95,7 @@ $conn->close();
                         <input type="email" class="username" required name="username">
                     </div>
                 </div>
-                <div class="inputBox">
+                <div class="loginInputBox">
                     <div>
                         <i class="fa-solid fa-lock" style="color: rgb(2, 2, 2);"></i> Password :
                     </div>
@@ -180,12 +103,12 @@ $conn->close();
                         <input type="password" class="password" required name="password">
                     </div>
                 </div>
-                <div class="inputBox">
+                <div class="loginInputBox">
                     <div>
-                        <i class="fa-solid fa-lock" style="color: rgb(2, 2, 2);"></i> CPassword :
+                        <i class="fa-solid fa-lock" style="color: rgb(2, 2, 2);"></i> Confirm Password :
                     </div>
                     <div>
-                    <input type="password" class="cpassword" required name="cpassword">
+                        <input type="password" class="cpassword" required name="cpassword">
                     </div>
                 </div>
             </div>

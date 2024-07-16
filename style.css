@@ -102,12 +102,6 @@ header,
     color: #000;
 }
 
-.signIn :hover {
-    border-radius: 50%;
-    background-color: rgb(223, 223, 223);
-    color: #eb5e28;
-}
-
 .wishlist{
     font-size: 20px;
     color: red;
@@ -454,7 +448,6 @@ header,
 
 
 
-
 /* register & login page css start */
 
 .forgotBox div a{
@@ -502,13 +495,14 @@ header,
 }
 
 .registerform {
-    height: 80vh;
+    height: 75vh;
 }
 
 .loginFormInput {
     width: 100%;
-    display: grid;
-    gap: 2vmin;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmin;
 }
 
 .loginInputBox div input , .registerBtn button{
@@ -535,7 +529,7 @@ header,
 }
 
 .forgotBox {
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;

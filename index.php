@@ -61,13 +61,10 @@ if (isset($_POST['search'])) {
 if (isset($_POST['input'])) {
     $inputData = $_POST['inputData'];
     if($inputData==""){
-        echo '<script type="text/javascript">';
-        echo 'alert("please enter a valid text");';
-        echo '</script>';
          $noInput = true;  
     }
     else{
-    $q = "SELECT * FROM `product` WHERE `productname` like '%$inputData%'";
+    $q = "SELECT * FROM `product` WHERE `productname` like '%$inputData%' || `productDescription` like '%$inputData%' || `searchkey` like '%$inputData%'";
     $output = mysqli_query($conn, $q);
     $numOfRow = mysqli_affected_rows($conn);
 
@@ -76,9 +73,11 @@ if (isset($_POST['input'])) {
     }
 
     if ($numOfRow == 0) {
-        $noInput = true;                 //this varibale is used to render the cards on Home page
+        $noInput = true;   
+        echo "false";              //this varibale is used to render the cards on Home page
     } else {
         $noInput = false;
+        echo "true";
     }
 }
 }
@@ -102,7 +101,7 @@ if (isset($_POST['input'])) {
     <link
         href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;500&family=Poppins:wght@300;500;700&family=Roboto:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styled.css">
+    <link rel="stylesheet" href="style.css">
     <title>e-commerce site</title>
 </head>
 
@@ -174,11 +173,14 @@ if (isset($_POST['input'])) {
                     if (!$noSearch) {
                 
                         $startNum = 1;
-                        $endNum = 19;
+                        $endNum = 50;
                         $count = 0;
                         while ($x = mysqli_fetch_assoc($output)) {
                             if ($count < $skip) {
                                 echo "
+                                <form method='post' action='singleProduct.php'>
+                                    <input type='hidden' name='product_id' value='{$x['pno']}'>
+                                    <button type='submit' name='showproduct' style='all: unset; cursor: pointer;'>
  <div class='displayedCard'>
       <div class='displayedProductImage'>
         <img
@@ -199,6 +201,8 @@ if (isset($_POST['input'])) {
         </div>
       </div>
     </div>
+       </button>
+                                </form>
                 ";
                             }
                             $count++;
@@ -209,11 +213,12 @@ if (isset($_POST['input'])) {
                 if (isset($_POST['input'])) {
                     if (!$noInput) {
                         $startNum = 1;
-                        $endNum = 19;
+                        $endNum = 50;
                         $count = 0;
                         while ($x = mysqli_fetch_assoc($output)) {
                             if ($count < $skip) {
                                 echo "
+                                
  <div class='displayedCard'>
       <div class='displayedProductImage'>
         <img

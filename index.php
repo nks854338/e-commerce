@@ -73,11 +73,9 @@ if (isset($_POST['input'])) {
     }
 
     if ($numOfRow == 0) {
-        $noInput = true;   
-        echo "false";              //this varibale is used to render the cards on Home page
+        $noInput = true;            //this varibale is used to render the cards on Home page
     } else {
         $noInput = false;
-        echo "true";
     }
 }
 }
@@ -107,7 +105,7 @@ if (isset($_POST['input'])) {
 
 <body>
     <?php
-    include_once ('_navbar.php');
+         include_once ('_navbar.php');
     ?>
 
     <section method="post" action="index.php">

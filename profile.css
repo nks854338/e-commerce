@@ -65,3 +65,35 @@
 .SinglepreviousProductPrice{
     text-decoration: line-through;
 }
+
+.SingleproductDetailsBuyNowBtn, .SingleproductDetailsCartBtn, .SingleproductDetailswishlistBtn{
+    height: 6vmin;
+    margin: 2vmin;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    font-size: 3vmin;
+    
+}
+
+.SingleproductDetailsBuyNowBtn:hover, .SingleproductDetailsCartBtn:hover, .SingleproductDetailswishlistBtn:hover{
+   transform: scale(1.02);
+}
+
+.SingleproductDetailsBuyNowBtn{
+    background-color: transparent;
+    border: solid;
+}
+
+.SingleproductDetailsCartBtn{
+    background-color: black;
+    color: #fff;
+}
+
+.SingleproductDetailswishlistBtn{
+    background-color: transparent;
+}
+
+.SingleproductDetailswishlistBtn:hover{
+    background-color: rgb(190, 190, 190);
+}

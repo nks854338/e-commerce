@@ -1,4 +1,4 @@
-<?php                                      //this script is for showing full profile of user or product and dedirecting to regPickerProfile.php
+<!-- <?php                                      //this script is for showing full profile of user or product and dedirecting to regPickerProfile.php
 if (isset($_POST['showproduct'])) {
     $servername = "localhost";
     $username = "root";
@@ -18,7 +18,7 @@ if (isset($_POST['showproduct'])) {
     }
 }
 
-?>
+?> -->
 
 
 <!DOCTYPE html>
@@ -66,9 +66,9 @@ if (!$noProduct) {
         <div class='SingleproductDetailsInfoBox2 SingleproductDetailsInfoBox'>
           <div class='SingleproductDetailsPriceBox'>
             <div class='SingleproductDetailsPrice'>
-              <span class='SinglecurrProductPrice'>₹$x[3]</span>
-              <span class='SinglepreviousProductPrice'>₹.1000</span>
-              <span class='SingleProductOffer' span>(50%OFF)</span>
+              <span class='SinglecurrProductPrice currProductPrice'>₹$x[3]</span>
+              <span class='SinglepreviousProductPrice previousProductPrice'>₹.1000</span>
+              <span class='SingleProductOffer ProductOffer'>(50%OFF)</span>
             </div>
 
             <div class='SingleproductDetailsTax'>inclusive of all taxes</div>
@@ -88,7 +88,7 @@ if (!$noProduct) {
               </div>
               <div class='SingleproductDetailsCart'>
                 <button class='SingleproductDetailswishlistBtn'>
-                  Add to Wishlist
+                  <i class='fa-solid fa-heart' style='color: #c1121f;'></i> Add to Wishlist
                 </button>
               </div>
             </div>

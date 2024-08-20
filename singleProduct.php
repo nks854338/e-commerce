@@ -1,21 +1,22 @@
-<!-- <?php                                      //this script is for showing full profile of user or product and dedirecting to regPickerProfile.php
+<!-- <?php
+session_start();                                  //this script is for showing full profile of user or product and dedirecting to regPickerProfile.php
 if (isset($_POST['showproduct'])) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "e_commerce";
-    $conn = new mysqli($servername, $username, $password, $database);
-    $product_id = $_POST['product_id'];
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $database = "e_commerce";
+  $conn = new mysqli($servername, $username, $password, $database);
+  $product_id = $_POST['product_id'];
 
-    $q = "SELECT * FROM product where pno=$product_id";
-    $result = mysqli_query($conn, $q);
+  $q = "SELECT * FROM product where pno=$product_id";
+  $result = mysqli_query($conn, $q);
 
-    $cnt = mysqli_affected_rows($conn);
-    if ($cnt == 0) {
-        $noProduct = true;
-    } else {
-        $noProduct = false;
-    }
+  $cnt = mysqli_affected_rows($conn);
+  if ($cnt == 0) {
+    $noProduct = true;
+  } else {
+    $noProduct = false;
+  }
 }
 
 ?> -->
@@ -23,23 +24,25 @@ if (isset($_POST['showproduct'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="profile.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <?php
-    include_once ('_navbar.php');
-    ?>
-    <main>
-      <div class="SingleproductDetailsContainer">
-<?php
 
-if (!$noProduct) {
-  while ($x = mysqli_fetch_array($result)) {
-    echo "
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="profile.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <?php
+  include_once ('_navbar.php');
+  ?>
+  <main>
+    <div class="SingleproductDetailsContainer">
+      <?php
+
+      if (!$noProduct) {
+        while ($x = mysqli_fetch_array($result)) {
+          echo "
     
     <div class='SingleProductBox'>
       <div class='SingleProfileImageBox'>
@@ -80,16 +83,31 @@ if (!$noProduct) {
               </div>
             </div>
             <div class='SingleproductDetailsButtons'>
+             <div class='SingleproductDetailsBuyNow'>
+                <form method='post' action='addToCart.php'>
+                   <input type='hidden' name='product_id' value='{$x[0]}'>
+                   <button type='submit' name='showproduct' style='all: unset; cursor: pointer; min-width: 100%;'>
+                     <div class='SingleproductDetailsBuyNowBtn' style=' display: flex; align-items: center; justify-content: center;'>Buy It Now</div>
+                    </button>
+                </form>
+              </div>
               <div class='SingleproductDetailsBuyNow'>
-                <button class='SingleproductDetailsBuyNowBtn'>Buy It Now</button>
+               <form method='post' action='addToCart.php'>
+                 <input type='hidden' name='product_id' value='{$x[0]}'>
+                   <button type='submit' name='showproduct' style='all: unset; cursor: pointer; min-width: 100%;'>
+                      <div class='SingleproductDetailsCartBtn' style=' display: flex; align-items: center; justify-content: center;'>Add to cart</div>
+                   </button>
+                </form>
               </div>
-              <div class='SingleproductDetailsCart'>
-                <button class='SingleproductDetailsCartBtn'>Add to cart</button>
-              </div>
-              <div class='SingleproductDetailsCart'>
-                <button class='SingleproductDetailswishlistBtn'>
-                  <i class='fa-solid fa-heart' style='color: #c1121f;'></i> Add to Wishlist
-                </button>
+              <div class='SingleproductDetailsBuyNow'>
+                <form method='post' action='addToWishlist.php'>
+                   <input type='hidden' name='product_id' value='{$x[0]}'>
+                   <button type='submit' name='showproduct' style='all: unset; cursor: pointer; min-width: 100%;'>
+                     <div class='SingleproductDetailswishlistBtn' style=' display: flex; align-items: center; justify-content: center;'>
+                      <i class='fa-solid fa-heart' style='color: #c1121f;'></i> Add to Wishlist
+                     </div>
+                   </button>
+                </form>
               </div>
             </div>
           </div>
@@ -107,14 +125,16 @@ if (!$noProduct) {
     </div>
     
     ";
-  }}
+        }
+      }
 
-?>
+      ?>
 
-      </div>
-    </main>
-    <?php
-    include_once ('_footer.php');
-    ?>
-  </body>
+    </div>
+  </main>
+  <?php
+  include_once ('_footer.php');
+  ?>
+</body>
+
 </html>

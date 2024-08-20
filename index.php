@@ -105,7 +105,7 @@ if (isset($_POST['input'])) {
 
 <body>
     <?php
-         include_once ('_navbar.php');
+         include_once ('Components/_navbar.php');
     ?>
 
     <section method="post" action="index.php">
@@ -137,7 +137,7 @@ if (isset($_POST['input'])) {
                         </div>
                         <p class='proNam'>{$x[1]}</p>
                           </button>
-                                    </form>
+                        </form>
                       </div>";
                             }
                             $count++;
@@ -249,8 +249,8 @@ if (isset($_POST['input'])) {
             </div>
         </section>
 
-        <section class="secondSection">
-            <div class="secSecheading">
+        <section class="secondSection" style="margin-top: -5vmin;">
+            <div class="secSecheading secondMainHeading" style="padding-left:21px;">
                 Shop our popular gift categories
             </div>
             <div class="secSecCards">
@@ -284,7 +284,7 @@ if (isset($_POST['input'])) {
         </section>
 
         <section class="secondSection">
-            <div class="secSecheading">
+            <div class="secSecheading secondMainHeading" style="padding-left:21px;">
                 Gifts that honor Mom and Dad's love
             </div>
             <div class="secSecCards">
@@ -318,7 +318,7 @@ if (isset($_POST['input'])) {
         </section>
 
         <section class="secondSection">
-            <div class="secSecheading">
+            <div class="secSecheading secondMainHeading" style="padding-left:21px;">
                 Gifts for friends
             </div>
             <div class="secSecCards">
@@ -352,8 +352,8 @@ if (isset($_POST['input'])) {
         </section>
 
         <section class="thirdSection">
-            <div class="thiSecheading">
-                Discover more shops in India
+            <div class="thiSecheading secondMainHeading" style="padding-left:21px;">
+                Explore more products
             </div>
             <div class="thiSecCards">
                 <?php
@@ -385,12 +385,9 @@ if (isset($_POST['input'])) {
                 ?>
             </div>
         </section>
-
-        <section class="fourthSection"></section>
-        <section class="fifthSection"></section>
     </section>
     <?php
-    include_once ('_footer.php');
+    include_once ('Components/_footer.php');
     ?>
 </body>
 

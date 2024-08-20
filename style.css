@@ -7,6 +7,10 @@
     margin: 0;
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 a {
     text-decoration: none;
 }
@@ -17,7 +21,6 @@ button{
     justify-content: center;
 }
 
-header,
 .secondSection,
 .thirdSection {
     padding-left: 5%;
@@ -44,7 +47,7 @@ header,
 }
 
 .searchBar {
-    width: 60%;
+    width: 55%;
     height: 50px;
     border: black 1px solid;
     display: flex;
@@ -65,14 +68,14 @@ header,
     border: none;
 }
 
-.searchBar button .searchIcon {
+.NavSearchIcon{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
     width: 50px;
     font-size: 25px;
-    background-color: orange;
+    background-color: #fc6a03;
     border-radius: 50%;
 }
 
@@ -83,7 +86,7 @@ header,
     padding: 5px;
 }
 
-.signIn button {
+.signIn .user {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,7 +96,7 @@ header,
     background-color: transparent;
 }
 
-.signIn button i {
+.signIn .user i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -255,7 +258,6 @@ header,
 
 /* second section css start */
 
-
 .secSecheading {
     font-size: 30px;
     height: 10vmin;
@@ -345,18 +347,9 @@ header,
     margin-top: 9vmin;
 }
 
-.blankProductSection {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eeecec;
-    border-radius: 20px;
-    box-shadow: 0px 0px 15px gray;
-    width: fit-content;
-    padding: 15px;
-    margin: auto;
-    font-size: 30px;
-}
+/* .emptyCartDiv{
+    min-height: 90vh;
+} */
 
 #productList,
 .wishlistSuggession {
@@ -428,7 +421,7 @@ header,
     border: none;
     font-size: 12px;
     border-radius: 20px;
-    background-color: #ddd;
+    background-color: transparent;
 }
 
 .wishlistBtn:hover {

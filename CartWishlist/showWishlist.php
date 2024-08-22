@@ -28,7 +28,7 @@ mysqli_close($conn);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <title>Wishlist</title>
 </head>
 
@@ -36,18 +36,13 @@ mysqli_close($conn);
     <?php
          include_once '../Components/_navbar.php';
     ?>
-    <?php
-    if ($noProduct == true) {
-        echo '<div class="blankProductSection">Currently no any Item is present</div>';
-    }
-    ?>
     <div class="wishlistHeading">
         Favourite items
     </div>
     <div id="productList">
     <?php
     if ($noProduct == true) {
-        echo "<div class='emptyCartDiv'><img src='../image/empty-wishlist.png'></div>";
+        echo "<div class='emptyCartDiv'><img src='../image/empty-wishlist.png'><div class='blankProductSection'>Currently no any Item is present</div></div>";
     }
     ?>
         <?php
@@ -68,7 +63,7 @@ mysqli_close($conn);
             <div class='wishlistProductPrice'>₹$x[3]</div>
             <div class='wishlistBtns'>
               <button class='wishlistBtn wishlistBuyNowBtn'>Buy Now</button>
-              <button class='wishlistBtn wishlistRemoveBtn'><a href='removeFromCart.php?pno=$x[0]'>Remove</a></button>
+              <button class='wishlistBtn wishlistRemoveBtn'><a href='removeFromWishlist.php?pno=$x[0]'>Remove</a></button>
             </div>
           </div>
         </div>
@@ -85,7 +80,7 @@ mysqli_close($conn);
 
     <div class="firSecComp2 wishlistSuggession">
         <?php
-        include_once('_suggestedProduct.php');
+        include_once('../Components/Recommendation.php');
         ?>
     </div>
     <?php

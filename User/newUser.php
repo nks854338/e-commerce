@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
             session_start();
             $_SESSION['user'] = $username;
             $_SESSION['name'] = $name;
-            header("location: index.php");
+            header("location: ../index.php");
         }
     } else {
         echo "failure";

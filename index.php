@@ -1,11 +1,7 @@
 <?php                                           //this script is for rendering cards
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "e_commerce";
-$conn = new mysqli($servername, $username, $password, $database);
+include_once 'User\db_conn.php';
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -59,6 +55,7 @@ if (isset($_POST['search'])) {
 <?php
 
 if (isset($_POST['input'])) {
+    include_once 'User\db_conn.php';
     $inputData = $_POST['inputData'];
     if($inputData==""){
          $noInput = true;  
@@ -108,7 +105,7 @@ if (isset($_POST['input'])) {
          include_once ('Components/_navbar.php');
     ?>
 
-    <section method="post" action="index.php">
+    <main method="post" action="index.php">
         <section class="firstSection">
             <div class="firSecComponent">
 
@@ -385,7 +382,7 @@ if (isset($_POST['input'])) {
                 ?>
             </div>
         </section>
-    </section>
+    </main>
     <?php
     include_once ('Components/_footer.php');
     ?>

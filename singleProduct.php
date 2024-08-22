@@ -1,11 +1,7 @@
-<!-- <?php
+<?php
 session_start();                                  //this script is for showing full profile of user or product and dedirecting to regPickerProfile.php
 if (isset($_POST['showproduct'])) {
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "e_commerce";
-  $conn = new mysqli($servername, $username, $password, $database);
+  include_once '.\User\db_conn.php';
   $product_id = $_POST['product_id'];
 
   $q = "SELECT * FROM product where pno=$product_id";
@@ -19,7 +15,7 @@ if (isset($_POST['showproduct'])) {
   }
 }
 
-?> -->
+?>
 
 
 <!DOCTYPE html>
@@ -29,12 +25,13 @@ if (isset($_POST['showproduct'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="profile.css" />
+  <link rel="stylesheet" href="style.css" />
   <title>Document</title>
 </head>
 
 <body>
   <?php
-  include_once ('_navbar.php');
+    include_once('Components/_navbar.php');
   ?>
   <main>
     <div class="SingleproductDetailsContainer">
@@ -84,7 +81,7 @@ if (isset($_POST['showproduct'])) {
             </div>
             <div class='SingleproductDetailsButtons'>
              <div class='SingleproductDetailsBuyNow'>
-                <form method='post' action='addToCart.php'>
+                <form method='post' action=''>
                    <input type='hidden' name='product_id' value='{$x[0]}'>
                    <button type='submit' name='showproduct' style='all: unset; cursor: pointer; min-width: 100%;'>
                      <div class='SingleproductDetailsBuyNowBtn' style=' display: flex; align-items: center; justify-content: center;'>Buy It Now</div>
@@ -92,7 +89,7 @@ if (isset($_POST['showproduct'])) {
                 </form>
               </div>
               <div class='SingleproductDetailsBuyNow'>
-               <form method='post' action='addToCart.php'>
+               <form method='post' action='.\CartWishlist\addToCart.php'>
                  <input type='hidden' name='product_id' value='{$x[0]}'>
                    <button type='submit' name='showproduct' style='all: unset; cursor: pointer; min-width: 100%;'>
                       <div class='SingleproductDetailsCartBtn' style=' display: flex; align-items: center; justify-content: center;'>Add to cart</div>
@@ -100,7 +97,7 @@ if (isset($_POST['showproduct'])) {
                 </form>
               </div>
               <div class='SingleproductDetailsBuyNow'>
-                <form method='post' action='addToWishlist.php'>
+                <form method='post' action='.\CartWishlist\addToWishlist.php'>
                    <input type='hidden' name='product_id' value='{$x[0]}'>
                    <button type='submit' name='showproduct' style='all: unset; cursor: pointer; min-width: 100%;'>
                      <div class='SingleproductDetailswishlistBtn' style=' display: flex; align-items: center; justify-content: center;'>
@@ -133,7 +130,7 @@ if (isset($_POST['showproduct'])) {
     </div>
   </main>
   <?php
-  include_once ('_footer.php');
+  include_once('Components/_footer.php');
   ?>
 </body>
 

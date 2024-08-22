@@ -2,11 +2,12 @@
 if (isset($_GET["pno"])) {
     include_once '../User/db_conn.php';
 
-    $result = $_GET["pno"];
+    $result = (int) $_GET["pno"];
     echo "$result<br>";
-    $sql = "delete from cart where pno=$result";
+    echo gettype($result);
+    $sql = "delete from cart where cartNo=$result";
     $res = mysqli_query($conn, $sql) or die("error in query" . mysqli_error($conn));
-    echo "$res";
+    echo "$res<br>";
     $cnt = mysqli_affected_rows($conn);
     echo "$cnt<br>";
     mysqli_close($conn);

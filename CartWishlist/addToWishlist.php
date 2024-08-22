@@ -35,6 +35,7 @@ if (isset($_POST["showproduct"])) {
         
         if ($conn->query($sql_insert) === TRUE) {
             echo "Row inserted successfully into wishlist";
+            header("location: showWishlist.php");
         } else {
             echo "Error inserting row: " . $conn->error;
         }

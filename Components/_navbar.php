@@ -40,8 +40,8 @@
                     echo '</div>';
                 } else {
                     echo '<div class="signIn">';
-                    echo '<a href="../oldUser.php"><div class="signInBtn" name="signIn">Sign In</div></a>';
-                    echo '<a href="../newUser.php"><i class="fa-solid fa-heart" style="color: orange;"></i></a>';
+                    echo '<a href=".\User\oldUser.php"><div class="signInBtn" name="signIn">Sign In</div></a>';
+                    echo '<a href=".\User\newUser.php"><i class="fa-solid fa-heart" style="color: orange;"></i></a>';
                     echo '</div>';
                 }
                 ?>

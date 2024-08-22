@@ -507,6 +507,10 @@ button{
     background-color: #ffffff;
 }
 
+.loginInputBox div input{
+    padding-left: 15px;
+}
+
 .registerBtn button{
     margin-top: 2vmin;
     background-color: #111;
@@ -523,6 +527,7 @@ button{
 
 .forgotBox {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;

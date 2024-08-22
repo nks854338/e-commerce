@@ -1,6 +1,4 @@
 <?php                                           //this script is for rendering cards
-session_start();
-
 include_once '..\User\db_conn.php';
 
 if ($conn->connect_error) {

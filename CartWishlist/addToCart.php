@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST["showproduct"])) {
     include_once '..\User\db_conn.php';
 
@@ -34,7 +35,8 @@ if (isset($_POST["showproduct"])) {
         $sql_insert = "INSERT INTO `cart` (`productName`, `productDescription`, `ProductPrice`, `image`, `pno`) VALUES ('$productName', '$productDescription', $ProductPrice, '$image', $proNo)";
         
         if ($conn->query($sql_insert) === TRUE) {
-            echo "Row inserted successfully into wishlist";
+            // echo "Row inserted successfully into wishlist";
+            header("location: showCart.php");
         } else {
             echo "Error inserting row: " . $conn->error;
         }

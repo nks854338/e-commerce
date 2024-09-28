@@ -100,7 +100,7 @@ $conn->close();
                 </div>
             </div>
             <div class="registerBtn"><button name="submit" class="register">Register</button></div>
-            <div><button><i class="fa-brands fa-google"></i>SignIn with google</button></div>
+            <!-- <div><button><i class="fa-brands fa-google"></i>SignIn with google</button></div> -->
             <div class="forgotBox">
                 <div>Already have a account?
                     <a href="oldUser.php">Login Here</a>

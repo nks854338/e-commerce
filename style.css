@@ -64,6 +64,12 @@ button{
     padding: 0 3%;
 }
 
+.searchBar .searchBtn i{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+}
+
 .searchBar button{
     border: none;
 }
@@ -174,7 +180,6 @@ button{
 /* first section css end */
 
 
-
 /* searchsection css start */
 
 .displayedCard {
@@ -255,7 +260,6 @@ button{
 /* searchsection css end */
 
 
-
 /* second section css start */
 
 .secSecheading {
@@ -289,7 +293,6 @@ button{
 
 
 /* second section css end */
-
 
 
 /* third section css start */
@@ -340,24 +343,23 @@ button{
 /* wishList & cart page css start */
 
 
-
+/* 
 .wishlistHeading {
     margin: 3vmin 7vmin;
     font-size: 5vmin;
     margin-top: 9vmin;
-}
+} */
 
 /* .emptyCartDiv{
     min-height: 90vh;
 } */
 
-#productList,
+/* #productList,
 .wishlistSuggession {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    margin: auto;
-    padding-bottom:8vmin;
+    gap: 20px; 
+    justify-content: flex-start; 
 }
 
 
@@ -369,7 +371,7 @@ button{
 }
 
 .wishlistCard:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 .wishlistProductImage {
@@ -435,7 +437,7 @@ button{
 
 .wishlistRemoveBtn:hover {
     background-color: red;
-}
+} */
 
 /* wishList & cart page css end */
 
@@ -548,6 +550,7 @@ button{
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-bottom: 70px !important;
       }
   
       footer .footerInfoBox .footerInfo1 {

@@ -26,8 +26,8 @@ if (isset($_POST["showproduct"])) {
         echo "success<br>";
 
         $proNo = $row['pno'];
-        $productName = mysqli_real_escape_string($conn, $row['productName']);
-        $productDescription = mysqli_real_escape_string($conn, $row['productDescription']);
+        $productName = $row['productName'];
+        $productDescription = $row['productDescription'];
         $ProductPrice = $row['ProductPrice'];
         $image = mysqli_real_escape_string($conn, $row['image']);
 
@@ -43,7 +43,6 @@ if (isset($_POST["showproduct"])) {
         echo "No rows found in product table with ID: $product_id";
     }
 
-    // Close connection
     $conn->close();
 }
 ?>

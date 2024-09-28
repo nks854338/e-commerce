@@ -74,7 +74,7 @@ if (isset($_POST['s1'])) {
             </div>
             <div class="registerBtn">
                 <button name="submit" class="register">Login</button>
-                <button><i class="fa-brands fa-google"></i>SignIn with google</button>
+                <!-- <button><i class="fa-brands fa-google"></i>SignIn with google</button> -->
             </div>
             <div class="forgotBox">
                 <div><a href="#">Forgot password?</a></div>

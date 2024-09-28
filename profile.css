@@ -92,6 +92,7 @@
 
 .SingleproductDetailswishlistBtn{
     background-color: transparent;
+    box-shadow:  gray 0 0 1px;
 }
 
 .SingleproductDetailswishlistBtn:hover{

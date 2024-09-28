@@ -28,7 +28,8 @@ mysqli_close($conn);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../MyStyle.css">
     <title>Cart</title>
 </head>
 
@@ -40,31 +41,31 @@ mysqli_close($conn);
     <div id="wishlistHeading" class="wishlistHeading">
         My cart
     </div>
-    <div id="productList">
-    <?php
-    if ($noProduct == true) {
-        echo "<div class='emptyCartDiv'><img src='../image/empty-cart.png'></div>";
-    }
-    ?>
+    <div id="productLists">
         <?php
-        if ($show == "1") { 
+        if ($noProduct == true) {
+            echo "<div class='emptyCartDiv'><img src='../image/empty-cart.png'></div>";
+        }
+        ?>
+        <?php
+        if ($show == "1") {
             while ($x = mysqli_fetch_array($result)) {
                 echo "
-             <div class='wishlistCard'>
+             <div class='wishlistCards'>
         <div class='wishlistProductImage'>
           <img
-            src='../$x[5]'
+            src='../$x[4]'
             alt=''
             class='img'
           />
         </div>
         <div class='wishlistProductInfoBox'>
           <div class='wishlistProductInfo'>
-            <div class='wishListProductName'>$x[2]</div>
-            <div class='wishlistProductPrice'>₹$x[4]</div>
-            <div class='wishlistBtns'>
-            <button class='wishlistBtn wishlistBuyNowBtn'>Buy Now</button>
-            <button class='wishlistBtn wishlistRemoveBtn'><a href='removeFromCart.php?pno=$x[0]'>Remove</a></button>
+            <div class='wishListProductName'>$x[1]</div>
+            <div class='wishlistProductPrice'>₹$x[3]</div>
+            <div class='wishCartBtns'>
+            <button class='wishCartBtn wishCartBuyNowBtn'>Buy Now</button>
+            <button class='wishCartBtn wishCartRemoveBtn'><a href='removeFromCart.php?pno=$x[0]'>Remove</a></button>
             </div>
           </div>
         </div>
@@ -76,12 +77,12 @@ mysqli_close($conn);
     </div>
 
     <div class="wishlistSuggessionHeading wishlistHeading">
-        Suggested searches
+        <!-- Suggested searches -->
     </div>
 
     <div class="firSecComp2 wishlistSuggession">
         <?php
-        include_once '../Components/_suggestedProduct.php'; 
+        // include_once '../Components/_suggestedProduct.php'; 
         ?>
     </div>
     <?php

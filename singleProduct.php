@@ -24,8 +24,9 @@ if (isset($_POST['showproduct'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="profile.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../MyStyle.css">
+  <link rel="stylesheet" href="profile.css" />
   <title>Document</title>
 </head>
 
@@ -44,7 +45,7 @@ if (isset($_POST['showproduct'])) {
     <div class='SingleProductBox'>
       <div class='SingleProfileImageBox'>
         <div class='SingleProfileImage'>
-          <img src='$x[4]' height=' alt=' />
+          <img src='$x[3]' height=' alt=' />
         </div>
       </div>
       <div class='SingleproductDetailsBox'>
@@ -66,7 +67,7 @@ if (isset($_POST['showproduct'])) {
         <div class='SingleproductDetailsInfoBox2 SingleproductDetailsInfoBox'>
           <div class='SingleproductDetailsPriceBox'>
             <div class='SingleproductDetailsPrice'>
-              <span class='SinglecurrProductPrice currProductPrice'>₹$x[3]</span>
+              <span class='SinglecurrProductPrice currProductPrice'>₹$x[4]</span>
               <span class='SinglepreviousProductPrice previousProductPrice'>₹.1000</span>
               <span class='SingleProductOffer ProductOffer'>(50%OFF)</span>
             </div>

@@ -10,13 +10,14 @@ if (isset($_POST["showproduct"])) {
 
     $product_id = $_POST["product_id"];
 
-    $selectResult = "SELECT * FROM product WHERE pno=$product_id";
+    // Prepare a statement to prevent SQL injection
+    $selectResult = "SELECT * FROM product WHERE pno = $product_id";
 
     $result = mysqli_query($conn, $selectResult);
 
     $cnt = mysqli_affected_rows($conn);
     if ($cnt == 0) {
-      echo "No product found with the given ID";
+        echo "No product found with the given ID";
     } else {
         echo "Product found<br>";
     }
@@ -26,16 +27,19 @@ if (isset($_POST["showproduct"])) {
         $row = mysqli_fetch_array($result);
         echo "success<br>";
 
+        // Fetching the product details
         $proNo = $row['pno'];
         $productName = mysqli_real_escape_string($conn, $row['productName']);
+        echo $product_name;
         $productDescription = mysqli_real_escape_string($conn, $row['productDescription']);
         $ProductPrice = $row['ProductPrice'];
         $image = mysqli_real_escape_string($conn, $row['image']);
 
-        $sql_insert = "INSERT INTO `cart` (`productName`, `productDescription`, `ProductPrice`, `image`, `pno`) VALUES ('$productName', '$productDescription', $ProductPrice, '$image', $proNo)";
+        // Insert the product into the cart table
+        $sql_insert = "INSERT INTO `cart` (`productName`, `productDescription`, `ProductPrice`, `image`, `pno`) 
+                       VALUES ('$productName', '$productDescription', $ProductPrice, '$image', $proNo)";
         
         if ($conn->query($sql_insert) === TRUE) {
-            // echo "Row inserted successfully into wishlist";
             header("location: showCart.php");
         } else {
             echo "Error inserting row: " . $conn->error;

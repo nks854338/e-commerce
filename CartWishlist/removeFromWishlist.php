@@ -5,7 +5,7 @@ if (isset($_GET["pno"])) {
     $result = (int) $_GET["pno"];
     // echo "$result<br>";
     // echo gettype($result);
-    $sql = "delete from wishlist where wishPno=$result";
+    $sql = "delete from wishlist where sno=$result";
     $res = mysqli_query($conn, $sql) or die("error in query" . mysqli_error($conn));
     echo "$res<br>";
     $cnt = mysqli_affected_rows($conn);

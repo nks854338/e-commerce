@@ -1,0 +1,67 @@
+remaining part:
+
+cookies issue
+show more products btn
+
+search page    done
+vendor page frontend improvement
+profile page 
+payment confirmation address page    semi done
+setupShop and create shop route issue      done
+
+
+
+
+mom/dad:
+Memory Jar
+Memory Book
+cups
+Flowers Bouquet
+friend
+water bottle
+Custom Watch
+glassess
+key ring
+Gag Gifts
+
+
+
+search key
+
+Art & craft    Soft Toys
+Mother’s Day Gifts  Birthday Gifts   Gifts for Her   Gifts for Him
+Accessories      Flowers & chocolate         
+Personalized Gifts   Customizable Cards    Memory Book
+Customizable Mug    Customizable Frames
+Handmade jewelry       Jewliery     Gardening tools
+Water bottle     Watches    Camera       Gag Gifts    Glasses
+
+
+
+
+
+
+
+
+
+                                                                                                                          title
+
+
+MAHARASHTRA         mumbai          Java Full Stack Development            10           wipro          last 6th           
+MAHARASHTRA         pune            Dot NetFullStack Developer             8                           last 7th 
+    ||               ||             Oracle                                 12
+                     ||              SDET                                  10       
+
+    Delhi                           Technical Skills, 
+                                    Analytical Skills,                     10
+                                    Software Testing, 
+                                    Project Management         
+   GUJARAT         Ahmadabad      TCS Internship Selection Process         45                                                             
+   GUJARAT         Ahmadabad      TCS Internship Selection Process         25                                             Back Office Data Processing Intern
+HIMACHAL PRADESH   Chamba                                                  2                                              IT INTERN
+    KARNATAka     Bengaluru Urban    Servicenow                            10           Wipro                              Project Intern
+    KARNATAKA     Bengaluru Urban    VLSI                                  10           Wipro                              Project Intern
+    KARNATAKA                     Dot NetFullStack Developer               8                           last 7th 
+  KERALA         Ernakulam          Java Full Stack Development            10           wipro          
+TELANGANA                        web designing and web development         10
+

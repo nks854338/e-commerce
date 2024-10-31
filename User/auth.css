@@ -1,0 +1,110 @@
+/* register & login page css start */
+
+.forgotBox div a{
+    text-decoration: none;
+    color: #eb5e28;
+    font-weight: 600;
+}
+
+.loginFormHeadings h2{
+    font-size: 5vmin;
+    padding-bottom: 8px;
+    text-align: center;
+}
+
+.loginFormHeadings p{
+    text-align: center;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vmin;
+}
+
+
+.registerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vmin;
+}
+
+.registerform, .loginform {
+    margin-top: 10vmin;
+    width: 25vw;
+    padding: 4vmin;
+    box-shadow: gray 0 2px 5px;
+    display: grid;
+    gap: 1vmin;
+    border-radius: 5px;
+}
+
+.loginform {
+    height: 50vh;
+}
+
+.registerform {
+    height: 75vh;
+}
+
+.loginFormInputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.loginInputBoxes div input , .registerBtn button{
+    border-radius: 5px;
+    border: none;
+    height: 5vmin;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: gray 0 2px 5px;
+    background-color: #ffffff;
+}
+
+.loginInputBoxes div input{
+    padding-left: 15px;
+    outline: none;
+}
+
+.registerBtn button{
+    margin-top: 2vmin;
+    background-color: #111;
+    color: #fff;
+    height: 5.5vmin;
+    font-size: 3vmin;
+}
+
+.registerBtn button:hover{
+    background-color: #fc6a03;
+    color: #fff;
+    transform: scale(1.005);
+}
+
+.forgotBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.withGoogle button{
+    background-color: transparent;
+    margin-top: 2vmin;
+    color: #000;
+    box-shadow: gray 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5.5vmin;
+    font-size: 3vmin;
+    width: 100%;
+}
+
+/* register & login page css end */

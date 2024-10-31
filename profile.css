@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.SingleproductDetailsContainer{
+    height: 90vh;
+    width: 85vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SingleProductBox{
+    display: flex;
+    height: 75vmin;
+}
+
+.SingleProfileImageBox{
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SingleProfileImage{
+    height: 70vmin;
+    width: auto;
+    background-color: #eee;
+    box-shadow: gray 0 0 10px;
+}
+
+.SingleProfileImage img{
+    height: 100%;
+}
+
+.SingleproductDetailsBox{
+    width: 40%;
+}
+
+.SingleproductDetailsInfoBox{
+    margin: 2vmin;
+}
+
+.SingleproductDetailsInfoBox1{
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+}
+
+.SingleproductDetailsName{
+    font-size: 5.5vmin;
+    font-weight: 700;
+}
+
+.SingleproductDetailsDescpration, .SingleproductDetailsPrice span{
+    font-size: 3vmin;
+}
+
+.SingleproductDetailsRatingBox{
+    display: flex;
+    align-items: center;
+}
+
+.SinglepreviousProductPrice{
+    text-decoration: line-through;
+}
+
+.SingleproductDetailsBuyNowBtn, .SingleproductDetailsCartBtn, .SingleproductDetailswishlistBtn{
+    height: 6vmin;
+    margin: 2vmin;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    font-size: 3vmin;
+    
+}
+
+.SingleproductDetailsBuyNowBtn:hover, .SingleproductDetailsCartBtn:hover, .SingleproductDetailswishlistBtn:hover{
+   transform: scale(1.02);
+}
+
+.SingleproductDetailsBuyNowBtn{
+    background-color: transparent;
+    border: solid;
+}
+
+.SingleproductDetailsCartBtn{
+    background-color: black;
+    color: #fff;
+}
+
+.SingleproductDetailswishlistBtn{
+    background-color: transparent;
+    box-shadow:  gray 0 0 1px;
+}
+
+.SingleproductDetailswishlistBtn:hover{
+    background-color: rgb(190, 190, 190);
+}
+
+.SingleproductDetailsCartBtn {
+    background-color: black;
+    color: #fff;
+}

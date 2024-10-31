@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family:sans-serif ;
+}
+
+.setUpShopHeader{
+    height: 70px;
+    width: 100%;
+    border-bottom: solid gray 2px;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    font-size: 40px;
+    color: black;
+    font-weight: 700;
+    background-color: #ffffff;
+}
+
+.setUpShopLogo a{
+    color: #fc6a03;
+}
+
+
+.setUpSection{
+    background-color: antiquewhite;
+}
+
+#shopCreationForm{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    row-gap: 10vmin;
+}
+
+.heading1{
+    text-align: center;
+    font-size: 38px;
+    padding-bottom: 2vmin;
+}
+
+.para1{
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 4vmin;
+}
+
+.heading2{
+    text-align: center;
+    font-size: 32px;
+    padding-bottom: 2vmin;
+}
+
+
+.firsec{
+    padding: 10vmin;
+}
+
+.thisec{
+    padding: 5vmin;
+}
+
+.firstBox, .secondBox, .thirdBox{
+     background-color: #ffffff;
+     padding: 2%;
+     border-radius: 5px;
+     box-shadow: 0px 0px 5px gray;
+}
+
+label{
+    font-size: 20px;
+}
+
+input, select{
+    height: 37px;
+    width: 50%;
+}
+
+textarea{
+    height: 100px;
+    width: 50%;
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+th{
+    width: max-content;
+    float: left;
+}
+
+td{
+    padding: 5px;
+    width: 80%;
+}
+
+.submitbtn{
+    width: 100%;
+    text-align: center;
+}
+
+.submitData{
+    width: max-content;
+    font-size: 25px;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    padding: 10px 50px;
+    margin: 50px 0;
+}
+
+.thirdBox{
+    margin-bottom: 10vmin;
+}

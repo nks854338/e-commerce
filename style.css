@@ -1,0 +1,541 @@
+/* Home page css */
+
+* {
+    font-family: sans-serif;
+    font-family: "Mukta", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.secondSection,
+.thirdSection {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.secondSection{
+    margin-bottom: 100px;
+}
+/* header css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2vmin;
+}
+
+.navbar .logo {
+    font-size: 40px;
+    color: #fc6a03;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.searchBar {
+    width: 55%;
+    height: 50px;
+    border: #222 1px solid;
+    display: flex;
+    border-radius: 30px;
+}
+
+.searchBar .search {
+    width: 95%;
+    height: 100%;
+    border: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    font-size: 20px;
+    padding: 0 3%;
+    outline: none;
+}
+
+.searchBar .searchBtn i{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+}
+
+.searchBar button{
+    border: none;
+}
+
+.NavSearchIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    background-color: #fc6a03;
+    border-radius: 50%;
+}
+
+.navComponentBox .signIn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.signIn .user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: transparent;
+}
+
+.signIn .user i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 22px;
+    color: #000;
+}
+
+#signIn{
+    display: flex;
+    gap: 20px;
+}
+
+.signInBtn{
+    padding: 2px 17px;
+    border-radius: 20px;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signInBtn:hover{
+    background-color:  rgba(128, 128, 128, 0.263);
+    box-shadow: gray 0 0 2px;
+}
+
+
+.userAuthIcon{
+    font-size: 13px !important;
+    color: #000813;
+    font-weight: 300;
+}
+
+.userAuthI{
+    color: #000813;
+}
+
+.wishlist{
+    font-size: 20px;
+    color: red;
+    border: none;
+}
+
+/* header css end */
+
+
+
+/* first section css start */
+
+.firstSection {
+    height: 350px;
+}
+
+.firstSection .firSecComponent {
+    height: 250px;
+    background-color: rgba(244, 178, 57, 0.389);
+}
+
+.firSecComponent .firSecComp1 {
+    font-size: 35px;
+    text-align: center;
+    font-weight: 200;
+    padding: 8vmin 0vmin 4vmin 0vmin;
+    margin: 4vmin;
+    margin: 3vmin;
+}
+
+.firSecComponent .firSecComp2,.secSecCards , .thirdSection .thiSecCards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.firSecComp2 .firSecBox {
+    margin: 5px;
+    height: 150px;
+    text-align: center;
+}
+
+.firSecBox:hover{
+    border-bottom: solid 1px;
+    transform: scale(1.08);
+}
+
+.image {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: azure;
+}
+
+.image:hover {
+    box-shadow: 0px 0px 10px rgba(79, 78, 78, 0.779);
+}
+
+.proImg{
+    width: 100%;
+    border-radius: 50%;
+    background-color: beige;
+}
+
+/* first section css end */
+
+
+/* searchsection css start */
+
+.displayedCard {
+    height: 60vmin;
+    width: 40vmin;
+    box-shadow: gray 0 0.5px 2px;
+    margin: 3vmin;
+  }
+
+  .displayedCard:hover {
+    transform: scale(1.02);
+  }
+
+  .displayedProductImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+  }
+
+  .displayedProductImage img {
+    height: 100%;
+    width: auto;
+  }
+
+  .displayedProductInfoBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vmin;
+    height: 25%;
+    width: 100%;
+  }
+
+  .displayedProductInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    width: 92%;
+  }
+
+  .displayedProductName {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .displayedProductdesc {
+    font-weight: lighter;
+    color: rgb(81, 81, 81);
+    font-size: 15px;
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5; 
+    height: 3em; 
+    white-space: normal; 
+}
+
+
+  .displayedProductPrice {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .currProductPrice {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .previousProductPrice {
+    font-size: 13px;
+    font-weight: lighter;
+    text-decoration: line-through;
+    color: rgb(81, 81, 81);
+  }
+  .ProductOffer {
+    font-size: 13px;
+    font-weight: lighter;
+    color: #f63;
+  }
+
+/* searchsection css end */
+
+
+/* second section css start */
+
+.secSecheading {
+    font-size: 28px;
+    font-weight: 700;
+    height: 10vmin;
+}
+
+.secSeccard {
+    height: 40vmin;
+    border-radius: 10px;
+    border: 0.5px solid gray;
+}
+
+.secSeccard:hover {
+    box-shadow: 0 0 10px rgba(96, 96, 96, 0.692);
+}
+
+.secSeccard img {
+    height: 80%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.secSeccard .cardpara {
+    height: 10%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+
+/* second section css end */
+
+
+/* third section css start */
+
+.thirdSection{
+    margin-top: 15vmin;
+}
+.thiSecheading {
+    font-size: 30px;
+    height: 10vmin;
+}
+
+.thiSeccard {
+    height: 70vmin;
+    width: 60vmin;
+    border-radius: 10px;
+    border: 0.5px solid gray;
+    margin-bottom: 15vmin;
+}
+
+.thiSeccard img {
+    height: 80%;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.thiSeccard .cardpara {
+    height: 15%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.thiSeccard .cardpara h4{
+    font-size: 20px;
+}
+
+.thiSeccard .cardpara p{
+    font-size: 15px;
+}
+
+
+/* third section css end */
+
+
+<<<<<<< HEAD
+=======
+/* register & login page css start */
+
+.forgotBox div a{
+    text-decoration: none;
+    color: #eb5e28;
+    font-weight: 600;
+}
+
+.loginFormHeading h2{
+    font-size: 5.5vmin;
+    text-align: center;
+}
+
+.loginFormHeading p{
+    text-align: center;
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vmin;
+}
+
+
+.registerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vmin;
+}
+
+.registerform, .loginform {
+    margin-top: 10vmin;
+    width: 30vw;
+    padding: 4vmin;
+    box-shadow: gray 0 2px 5px;
+    display: grid;
+    gap: 1vmin;
+    border-radius: 10px;
+}
+
+.loginform {
+    height: 65vh;
+}
+
+.registerform {
+    height: 75vh;
+}
+
+.loginFormInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vmin;
+}
+
+.loginInputBox div input , .registerBtn button{
+    border-radius: 10px;
+    border: none;
+    height: 5vmin;
+    width: 100%;
+    box-shadow: gray 0 2px 5px;
+    background-color: #ffffff;
+}
+
+.loginInputBox div input{
+    padding-left: 15px;
+}
+
+.registerBtn button{
+    margin-top: 2vmin;
+    background-color: #111;
+    color: #fff;
+    height: 5.5vmin;
+    font-size: 3.2vmin;
+}
+
+.registerBtn button:hover{
+    background-color: #fc6a03;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.forgotBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* register & login page css end */
+
+
+
+>>>>>>> 890abd24 (worked on card page)
+
+    /* footer css start */
+
+    footer {
+        background-color: #111;
+        color: #fff;
+        height: 45vmin;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 50px !important;
+      }
+  
+      footer .footerInfoBox .footerInfo1 {
+        width: 20vw;
+        display: grid;
+        justify-content: left;
+        gap: 1.5vmin;
+      }
+  
+      footer .footerInfoBox {
+        display: flex;
+        height: 30vmin;
+        align-items: baseline;
+        justify-content: space-evenly;
+      }
+  
+      .footIcon {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      .footIcon img {
+        max-width: 30%;
+        min-width: 5vmin;
+      }
+  
+      .footLink {
+        font-size: 2.6vmin;
+      }
+  
+      .footerInfo1 .impoLink {
+        font-size: 4vmin;
+      }
+  
+      .footerInfo1 .footLogo {
+        font-size: 5vmin;
+      }
+  
+      .footerInfo1 h4 {
+        font-size: 3.7vmin;
+      }
+  
+      /* footer css end */

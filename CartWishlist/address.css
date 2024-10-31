@@ -1,0 +1,55 @@
+.AddressPageBox{
+   width: 100%;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.addressForm{
+    box-shadow: gray 0 0 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40vw;
+    padding: 40px;
+    margin: 100px;
+}
+
+.addressForm div input{
+    width: 100%;
+    height: 35px;
+    border: 1px #bbb solid;
+    padding-left: 20px;
+}
+
+.addressFormTop{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.addAddressBtn{
+    padding: 20px;
+    border:1px gray dashed;
+}
+
+.cartItems{
+    width: 45vw;
+    margin-bottom: 50px;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+}
+
+.AddressPageBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.AddressPage{
+    width: 45%;
+    margin-bottom: 50px;
+    background-color: transparent;
+}

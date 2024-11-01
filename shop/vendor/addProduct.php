@@ -10,7 +10,7 @@ $user = $_SESSION['user'];
 $noProduct = true;
 
 if (isset($_POST['submit'])) {
-    include_once 'C:/xampp/htdocs/projects/e-commerce/User/db_conn.php';
+    include_once 'C:/xampp/htdocs/e-commerce/User/db_conn.php';
 
     $filename = $_FILES["image"]["name"];
     $tempname = $_FILES["image"]["tmp_name"];
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         if ($result) {
             echo '<script type="text/javascript">';
             echo 'alert("product added succefully");';
-            echo 'window.location.href = "/projects/e-commerce/shop/vendor/index.php";';
+            echo 'window.location.href = "/e-commerce/shop/vendor/index.php";';
             echo '</script>';
         } else {
             die("Error adding product: " . mysqli_error($conn));

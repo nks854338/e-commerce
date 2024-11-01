@@ -2,7 +2,7 @@
 require_once "./utils/config.php";
 require_once "./utils/common.php";
 
-session_start();
+// session_start();
 
 // Check if the required fields are set
 if (isset($_POST['totalPrice']) && isset($_POST['totalQuantity'])) {

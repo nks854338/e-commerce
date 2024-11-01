@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['shop'] = "done";
         echo '<script type="text/javascript">';
         echo 'alert("Shop created succefully");';
-        echo 'window.location.href = "/projects/e-commerce/shop/vendor/index.php";';
+        echo 'window.location.href = "/e-commerce/shop/vendor/index.php";';
         echo '</script>';
     } else {
         echo "failure";

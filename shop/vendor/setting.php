@@ -26,24 +26,24 @@ if (!isset($_SESSION['user'])) {
     <!-- Sidebar -->
     <nav class="sidebar" width="100%">
     <div class="logo">
-            <a href="/projects/e-commerce/index.php">
+            <a href="/e-commerce/index.php">
             <img src="Assets/images/bag.png" alt="Logo" />
             </a>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="/projects/e-commerce/shop/vendor/index.php"><i class="fa-solid fa-table-cells-large"></i></a>
+                <a href="/e-commerce/shop/vendor/index.php"><i class="fa-solid fa-table-cells-large"></i></a>
             </li>
           <li>
-            <a href="/projects/e-commerce/shop/vendor/profile.php"
+            <a href="/e-commerce/shop/vendor/profile.php"
               ><i class="fa-solid fa-user"></i></a>
           </li>
           <li>
-            <a href="/projects/e-commerce/shop/vendor/setting.html"
+            <a href="/e-commerce/shop/vendor/setting.html"
               ><i class="fa-solid fa-gear" style="color: #fc6a03;"></i></a>
           </li>
           <li>
-            <a href="/projects/e-commerce/User/logout.php"
+            <a href="/e-commerce/User/logout.php"
               ><i class="fa-solid fa-right-from-bracket"></i></a>
           </li>
       </ul>

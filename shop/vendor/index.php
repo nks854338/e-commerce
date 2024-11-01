@@ -2,13 +2,13 @@
 
 session_start();
 if (!isset($_SESSION['user'])) {
-    header(('location: /projects/e-commerce/User/oldUser.php'));
+    header(('location: /e-commerce/User/oldUser.php'));
     die();
 }
 
 $user = $_SESSION['user'];
 
-include_once 'C:/xampp/htdocs/projects/e-commerce/User/db_conn.php';
+include_once 'C:/xampp/htdocs/e-commerce/User/db_conn.php';
 $q = "SELECT * FROM product WHERE soldedBy = '$user'";
 $result = mysqli_query($conn, $q);
 
@@ -48,23 +48,23 @@ if ($cnt == 0) {
     <!-- Sidebar -->
     <nav class="sidebar" style="box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;">
         <div class="logo">
-            <a href="/projects/e-commerce/index.php">
+            <a href="/e-commerce/index.php">
             <img src="Assets/images/bag.png" alt="Logo" />
             </a>
         </div>
         <ul class="nav-links">
             <li>
-                <a href="/projects/e-commerce/shop/vendor/index.php"><i class="fa-solid fa-table-cells-large"
+                <a href="/e-commerce/shop/vendor/index.php"><i class="fa-solid fa-table-cells-large"
                         style="color: #fc6a03;"></i></a>
             </li>
             <li>
-                <a href="/projects/e-commerce/shop/vendor/profile.php"><i class="fa-solid fa-user"></i></a>
+                <a href="/e-commerce/shop/vendor/profile.php"><i class="fa-solid fa-user"></i></a>
             </li>
             <li>
-                <a href="/projects/e-commerce/shop/vendor/setting.php"><i class="fa-solid fa-gear"></i></a>
+                <a href="/e-commerce/shop/vendor/setting.php"><i class="fa-solid fa-gear"></i></a>
             </li>
             <li>
-                <a href="/projects/e-commerce/User/logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
+                <a href="/e-commerce/User/logout.php"><i class="fa-solid fa-right-from-bracket"></i></a>
             </li>
         </ul>
     </nav>
@@ -125,7 +125,7 @@ if ($cnt == 0) {
                     <div class="btn-row">
                         <button type="submit" class="btn1">Explore</button>
                         <button type="submit" class="btn2" style="background-color: #31c48d; color: #fff;"><a
-                                href="/projects/e-commerce/shop/vendor/addProduct.php"
+                                href="/e-commerce/shop/vendor/addProduct.php"
                                 style="color: #fff; text-decoration: none;">Create</a></button>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET["pno"])) {
-    include_once 'C:/xampp/htdocs/projects/e-commerce/User/db_conn.php';
+    include_once 'C:/xampp/htdocs/e-commerce/User/db_conn.php';
 
     $result = (int) $_GET["pno"];
     echo "product id is : $result" ;
@@ -13,7 +13,7 @@ if (isset($_GET["pno"])) {
     echo "$cnt<br>";
     mysqli_close($conn);
     if ($cnt >= 1) {
-        header("location:/projects/e-commerce/shop/vendor/index.php");
+        header("location:/e-commerce/shop/vendor/index.php");
     } else {
         echo "try again";
     }

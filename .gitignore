@@ -1,5 +1,12 @@
 User/vendor/
+vendor/
 User/config.php
 CartWishlist/phonePayPaymentGateway/utils
 CartWishlist/phonePayPaymentGateway/vendor
 .env
+.lock
+.json
+composer.json
+composer.lock
+CartWishlist\phonePayPaymentGateway\composer.lock
+CartWishlist\phonePayPaymentGateway\composer.json

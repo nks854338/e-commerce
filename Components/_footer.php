@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styled.css">
+  <link rel="stylesheet" href="../style.css">
   <title>Document</title>
 </head>
 
 <body>
-  <footer>
+  <footer style="background-color: black;">
     <div class="footerInfoBox">
       <div class="footerInfo1 footerInfo11" style="margin-right: 20px">
         <h4 class="footLogo">Sneh Sangrah</h4>
         <p class="impoLink">About us</p>
         <p class="footLink">
-        Senh Sangrah is an e-commerce 
-platform designed to provide 
-users with a seamless shopping 
-experience.
+          Senh Sangrah is an e-commerce
+          platform designed to provide
+          users with a seamless shopping
+          experience.
         </p>
       </div>
       <div class="footerInfo1">
@@ -38,23 +38,23 @@ experience.
         <p class="impoLink">follow us</p>
         <div class="footIcon">
           <div class="footiconImg">
-          <a href="#">
-            <img src="/projects/e-commerce/image/facebook.png" alt="" />
+            <a href="#">
+              <img src="/e-commerce/image/facebook.png" alt="" />
             </a>
           </div>
           <div class="footiconImg">
             <a href="#">
-              <img src="/projects/e-commerce/image/instagram.png" alt="" />
+              <img src="/e-commerce/image/instagram.png" alt="" />
             </a>
           </div>
           <div class="footiconImg">
-          <a href="#">
-            <img src="/projects/e-commerce/image/whatsapp.png" alt="" />
+            <a href="#">
+              <img src="/e-commerce/image/whatsapp.png" alt="" />
             </a>
           </div>
           <div class="footiconImg">
-          <a href="#">
-            <img src="/projects/e-commerce/image/youtube.png" alt="" />
+            <a href="#">
+              <img src="/e-commerce/image/youtube.png" alt="" />
             </a>
           </div>
         </div>

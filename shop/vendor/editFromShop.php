@@ -1,6 +1,6 @@
 <?php
 // Connect to the database
-include_once 'C:/xampp/htdocs/projects/e-commerce/User/db_conn.php';
+include_once 'C:/xampp/htdocs/e-commerce/User/db_conn.php';
 
 if (isset($_GET["pno"])) {
     $productNumber = (int) $_GET["pno"];
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($conn, $updateQuery)) {
         echo "Product updated successfully!";
         // Optionally redirect the user to another page
-        header("Location: /projects/e-commerce/shop/vendor/index.php");
+        header("Location: /e-commerce/shop/vendor/index.php");
         exit();
     } else {
         echo "Error updating product: " . mysqli_error($conn);

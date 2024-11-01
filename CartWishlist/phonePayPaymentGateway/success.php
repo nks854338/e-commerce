@@ -49,8 +49,8 @@
           <button
             style="height: 40px; width: 40px; border-radius: 50%; border: none"
           >
-            <a href="http://localhost/projects/e-commerce/index.php">
-              <img src="/projects/e-commerce/image/x_mark.png" height="18px" alt="" />
+            <a href="/e-commerce/index.php">
+              <img src="/e-commerce//image/x_mark.png" height="18px" alt="" />
             </a>
           </button>
         </div>

@@ -40,7 +40,7 @@
             </div>
             <hr />
             <div class="box5">
-               <a href="/projects/e-commerce/User/logout.php">
+               <a href="/e-commerce/User/logout.php">
               <p id="firstsentencebox4">Logout</p>
             </a>
             </div>

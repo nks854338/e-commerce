@@ -3,6 +3,16 @@
 ## Overview
 Sneh Sangrah is an innovative e-commerce platform designed to provide a unique shopping experience while empowering individual sellers to create their own online shops. This project combines modern technology with user-centric design to enhance online shopping.
 
+## Demo Link
+Explore the live demo of Sneh Sangrah: [Demo Link]()
+
+## Demo Video
+Watch the demo of Sneh Sangrah : [Sneh Sangrah Demo](https://youtu.be/3jh1oqnANUI)
+
+## Project Report
+[Project Report](https://drive.google.com/file/d/1aWME5zHhXvrjjBXRLBgwiIma5dL_kDPx/view?usp=sharing)
+
+
 ## Project Highlights
 - 🔒 **Personalized Shopping**: User authentication with sign-in options for a secure and custom experience.
 - 🛒 **Shop Creation for Sellers**: Individuals can now easily set up and manage their own shops to reach a larger audience.
@@ -26,24 +36,16 @@ The Seller Dashboard provides comprehensive management tools for sellers to effe
 
 ## ER Diagram
 [ER Diagram](https://www.behance.net/gallery/210904191/ER-Digram-for-E-commerce)
-![Group 34](https://github.com/user-attachments/assets/6036c0ce-38ec-4b80-9cae-c8723e1c998f)
+![Group 34](https://github.com/user-attachments/assets/7b7f6b5c-923d-4237-ab70-2b638c541760)
+
 
 *This diagram represents the entity-relationship structure of the Sneh Sangrah platform, detailing how different data entities interact.*
 
 ## Block Diagram
 [Block Diagram](https://www.behance.net/gallery/210905305/Block-Digram)
-![Group 1](https://github.com/user-attachments/assets/08e3437c-b0ea-4af2-8545-4af669408b7c)
-)  
+![Group 1](https://github.com/user-attachments/assets/02f633df-afb6-4da4-ab8d-13e6312c19f0)
+
 *This diagram represents the architecture and components of the Sneh Sangrah platform.*
-
-## Demo Link
-Explore the live demo of Sneh Sangrah: [Demo Link]()
-
-## Demo Video
-Watch the demo of Sneh Sangrah : [Sneh Sangrah Demo]()
-
-## Project Report
-[Project Report](https://drive.google.com/file/d/1aWME5zHhXvrjjBXRLBgwiIma5dL_kDPx/view?usp=sharing)
 
 ## Technologies Used
 - HTML
